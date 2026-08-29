@@ -1,0 +1,1282 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Uñas y Belleza</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px 12px 40px;
+
+            font-family: "Trebuchet MS", Arial, sans-serif;
+
+            text-align: center;
+
+            color: #5A3745;
+
+            background-image: url("imagenes/images.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+
+        /* CAPAS SUAVES PARA QUE LAS LETRAS SE VEAN */
+
+        body::before {
+            content: "";
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: rgba(255,255,255,0.12);
+
+            z-index: -1;
+        }
+
+
+        /* TITULO */
+
+        h1 {
+            display: table;
+
+            margin: 10px auto 15px;
+
+            padding: 12px 24px;
+
+            font-family: Georgia, serif;
+
+            font-size: clamp(36px, 9vw, 52px);
+
+            font-style: italic;
+
+            color: #8B1E4D;
+
+            background: rgba(255,255,255,0.82);
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 5px 18px rgba(0,0,0,0.12);
+
+            text-shadow:
+                0 2px 4px rgba(0,0,0,0.15);
+        }
+
+
+        /* DESCRIPCION */
+
+        .descripcion {
+            width: fit-content;
+
+            max-width: 90%;
+
+            margin: 0 auto 20px;
+
+            padding: 10px 18px;
+
+            font-size: 19px;
+
+            background: rgba(255,255,255,0.82);
+
+            border-radius: 16px;
+
+            box-shadow:
+                0 4px 12px rgba(0,0,0,0.10);
+        }
+
+
+        /* BOTONES */
+
+        .boton {
+            display: inline-block;
+
+            border: none;
+
+            padding: 15px 28px;
+
+            margin: 12px 5px;
+
+            min-width: 220px;
+
+            border-radius: 35px;
+
+            background: linear-gradient(
+                135deg,
+                #8B1E4D,
+                #B63B6D
+            );
+
+            color: white;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            text-decoration: none;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 7px 18px rgba(91,35,60,0.25);
+
+            transition:
+                transform 0.2s,
+                box-shadow 0.2s;
+        }
+
+
+        .boton:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 22px rgba(91,35,60,0.30);
+        }
+
+
+        .boton:active {
+            transform: scale(0.97);
+        }
+
+
+        /* TITULOS DE SECCION */
+
+        h2 {
+            display: table;
+
+            margin: 40px auto 25px;
+
+            padding: 9px 22px;
+
+            font-family: Georgia, serif;
+
+            font-style: italic;
+
+            font-size: 30px;
+
+            color: #A02C5A;
+
+            background: rgba(255,255,255,0.82);
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 4px 14px rgba(0,0,0,0.10);
+        }
+
+
+        /* SERVICIOS */
+
+        .servicios {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: stretch;
+
+            flex-wrap: wrap;
+
+            gap: 20px;
+
+            width: 100%;
+
+            max-width: 950px;
+
+            margin: auto;
+        }
+
+
+        .servicio {
+
+            width: 270px;
+
+            padding: 22px 18px;
+
+            background: rgba(255,255,255,0.91);
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 7px 20px rgba(0,0,0,0.14);
+
+            transition:
+                transform 0.2s;
+        }
+
+
+        .servicio:hover {
+            transform: translateY(-4px);
+        }
+
+
+        .servicio h3 {
+
+            margin-top: 5px;
+
+            font-family: Georgia, serif;
+
+            font-style: italic;
+
+            font-size: 27px;
+
+            color: #8B1E4D;
+        }
+
+
+        .servicio p {
+            font-size: 17px;
+
+            line-height: 1.5;
+        }
+
+
+        .precio {
+
+            font-size: 19px !important;
+
+            font-weight: bold;
+
+            color: #A02C5A;
+        }
+
+
+        /* RESERVA */
+
+        .reserva {
+
+            width: 100%;
+
+            max-width: 520px;
+
+            margin: 25px auto;
+
+            padding: 30px 20px;
+
+            background: rgba(255,255,255,0.93);
+
+            border-radius: 26px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.16);
+        }
+
+
+        .campo {
+            margin-bottom: 22px;
+        }
+
+
+        label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-family: Georgia, serif;
+
+            font-size: 19px;
+
+            font-weight: bold;
+
+            color: #8B1E4D;
+        }
+
+
+        /* CAMPOS */
+
+        input,
+        select {
+
+            width: 100%;
+
+            max-width: 350px;
+
+            padding: 14px 15px;
+
+            border: 2px solid #D9A0B7;
+
+            border-radius: 13px;
+
+            background: #fff;
+
+            color: #5A3745;
+
+            font-size: 17px;
+
+            text-align: center;
+
+            box-shadow:
+                0 3px 8px rgba(0,0,0,0.06);
+
+            transition:
+                border-color 0.2s,
+                box-shadow 0.2s;
+        }
+
+
+        input:focus,
+        select:focus {
+
+            outline: none;
+
+            border-color: #8B1E4D;
+
+            box-shadow:
+                0 0 0 3px rgba(139,30,77,0.12);
+        }
+
+
+        /* FECHA */
+
+        #fecha {
+
+            cursor: pointer;
+
+            color: #6D4052;
+
+            font-weight: bold;
+        }
+
+
+        /* HORAS OCUPADAS */
+
+        select option:disabled {
+
+            color: #999;
+
+            background: #eeeeee;
+        }
+
+
+        /* MENSAJE DE CONFIRMACION */
+
+        #mensaje {
+
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 20px;
+
+            border-radius: 18px;
+
+            background: #FFF6FA;
+
+            border: 2px solid #D9A0B7;
+
+            color: #8B1E4D;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            line-height: 1.6;
+
+            box-shadow:
+                0 5px 15px rgba(0,0,0,0.10);
+
+            animation:
+                aparecer 0.3s ease;
+        }
+
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+        }
+
+
+        /* MENSAJE DE CARGA */
+
+        .cargando {
+
+            opacity: 0.65;
+
+            pointer-events: none;
+        }
+
+
+        /* CELULARES */
+
+        @media (max-width: 600px) {
+
+            body {
+
+                padding:
+                    15px 8px 35px;
+
+                background-attachment:
+                    scroll;
+            }
+
+
+            h1 {
+
+                margin-top: 5px;
+
+                padding:
+                    10px 18px;
+
+                font-size:
+                    37px;
+            }
+
+
+            .descripcion {
+
+                font-size: 17px;
+
+                line-height: 1.4;
+            }
+
+
+            h2 {
+
+                margin-top: 32px;
+
+                font-size: 26px;
+
+                padding:
+                    8px 17px;
+            }
+
+
+            .boton {
+
+                width: 95%;
+
+                max-width: 350px;
+
+                min-width: 0;
+
+                padding:
+                    15px 20px;
+
+                font-size: 17px;
+            }
+
+
+            .servicios {
+
+                flex-direction: column;
+
+                align-items: center;
+
+                gap: 16px;
+            }
+
+
+            .servicio {
+
+                width: 94%;
+
+                max-width: 360px;
+
+                padding:
+                    20px 17px;
+            }
+
+
+            .reserva {
+
+                width: 95%;
+
+                padding:
+                    25px 15px;
+
+                border-radius: 22px;
+            }
+
+
+            input,
+            select {
+
+                width: 100%;
+
+                font-size: 17px;
+
+                padding: 14px 10px;
+            }
+
+
+            label {
+
+                font-size: 18px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- TITULO -->
+
+    <h1>
+        Uñas y Belleza
+    </h1>
+
+
+    <p class="descripcion">
+        Manicure profesional para resaltar tu belleza
+    </p>
+
+
+    <!-- WHATSAPP -->
+
+    <a
+        class="boton"
+        href="https://wa.me/5354019544"
+        target="_blank">
+
+        💬 Contactar por WhatsApp
+
+    </a>
+
+
+    <!-- SERVICIOS -->
+
+    <h2>
+        Nuestros Servicios
+    </h2>
+
+
+    <div class="servicios">
+
+
+        <div class="servicio">
+
+            <h3>
+                Manicure
+            </h3>
+
+            <p>
+                Cuidado y embellecimiento
+                de tus uñas.
+            </p>
+
+            <p class="precio">
+                Desde R$ 30
+            </p>
+
+        </div>
+
+
+        <div class="servicio">
+
+            <h3>
+                Pedicure
+            </h3>
+
+            <p>
+                Cuidado y belleza
+                para tus pies.
+            </p>
+
+            <p class="precio">
+                Desde R$ 40
+            </p>
+
+        </div>
+
+
+        <div class="servicio">
+
+            <h3>
+                Uñas de gel
+            </h3>
+
+            <p>
+                Uñas bonitas, resistentes
+                y duraderas.
+            </p>
+
+            <p class="precio">
+                Desde R$ 60
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- RESERVA -->
+
+    <h2>
+        Reserva tu cita
+    </h2>
+
+
+    <div class="reserva">
+
+
+        <!-- NOMBRE -->
+
+        <div class="campo">
+
+            <label for="nombre">
+                👤 Tu nombre
+            </label>
+
+            <input
+                type="text"
+                id="nombre"
+                placeholder="Escribe tu nombre"
+                autocomplete="name">
+
+        </div>
+
+
+        <!-- FECHA -->
+
+        <div class="campo">
+
+            <label for="fecha">
+                📅 Selecciona el día
+            </label>
+
+            <input
+                type="date"
+                id="fecha">
+
+        </div>
+
+
+        <!-- HORA -->
+
+        <div class="campo">
+
+            <label for="hora">
+                🕐 Selecciona la hora
+            </label>
+
+            <select id="hora">
+
+                <option value="">
+                    Selecciona una hora
+                </option>
+
+                <option value="10:00 AM">
+                    10:00 AM
+                </option>
+
+                <option value="2:00 PM">
+                    2:00 PM
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- BOTON RESERVAR -->
+
+        <button
+            class="boton"
+            id="botonReservar"
+            onclick="reservarCita()">
+
+            💅 Reservar cita
+
+        </button>
+
+
+        <!-- CONFIRMACION -->
+
+        <div id="mensaje"></div>
+
+
+    </div>
+
+
+    <script>
+
+
+        /* =========================================
+           CONEXION CON GOOGLE SHEETS
+        ========================================= */
+
+        const URL_RESERVAS =
+        "https://script.google.com/macros/s/AKfycbwa9M0vfb7a3h75m8DWVdHvXS5ht68IbgOSJ3qTPaXlZxPiHYXBT-_h5WRrdn2AbEs/exec";
+
+
+
+        /* =========================================
+           ELEMENTOS
+        ========================================= */
+
+        const fechaInput =
+            document.getElementById("fecha");
+
+
+        const horaSelect =
+            document.getElementById("hora");
+
+
+        const nombreInput =
+            document.getElementById("nombre");
+
+
+        const mensaje =
+            document.getElementById("mensaje");
+
+
+        const botonReservar =
+            document.getElementById("botonReservar");
+
+
+
+        /* =========================================
+           FECHA MINIMA = HOY
+        ========================================= */
+
+        const hoy =
+            new Date();
+
+
+        const año =
+            hoy.getFullYear();
+
+
+        const mes =
+            String(
+                hoy.getMonth() + 1
+            ).padStart(2, "0");
+
+
+        const dia =
+            String(
+                hoy.getDate()
+            ).padStart(2, "0");
+
+
+        const fechaMinima =
+            año + "-" +
+            mes + "-" +
+            dia;
+
+
+        fechaInput.min =
+            fechaMinima;
+
+
+
+        /* =========================================
+           COMPROBAR HORAS OCUPADAS
+        ========================================= */
+
+        async function cargarDisponibilidad() {
+
+
+            const fecha =
+                fechaInput.value;
+
+
+            if (fecha === "") {
+                return;
+            }
+
+
+            try {
+
+
+                const respuesta =
+                    await fetch(
+                        URL_RESERVAS
+                    );
+
+
+                const reservas =
+                    await respuesta.json();
+
+
+                const ocupadas =
+                    reservas
+                    .filter(function(reserva) {
+
+                        return
+                            reserva.fecha === fecha;
+
+                    })
+                    .map(function(reserva) {
+
+                        return String(
+                            reserva.hora
+                        );
+
+                    });
+
+
+                /* RESTABLECER HORAS */
+
+                horaSelect.options[1].disabled =
+                    false;
+
+                horaSelect.options[1].text =
+                    "10:00 AM";
+
+
+                horaSelect.options[2].disabled =
+                    false;
+
+                horaSelect.options[2].text =
+                    "2:00 PM";
+
+
+
+                /* MARCAR OCUPADAS */
+
+                for (
+                    let i = 1;
+                    i < horaSelect.options.length;
+                    i++
+                ) {
+
+
+                    const opcion =
+                        horaSelect.options[i];
+
+
+                    if (
+                        ocupadas.includes(
+                            opcion.value
+                        )
+                    ) {
+
+                        opcion.disabled =
+                            true;
+
+                        opcion.text =
+                            opcion.value +
+                            " — OCUPADA";
+
+                    }
+
+                }
+
+
+                horaSelect.value = "";
+
+
+            }
+            catch (error) {
+
+                console.error(error);
+
+                alert(
+                    "No se pudo comprobar la disponibilidad."
+                );
+
+            }
+
+        }
+
+
+
+        /* =========================================
+           COMPROBAR DOMINGO
+        ========================================= */
+
+        fechaInput.addEventListener(
+            "change",
+            function() {
+
+
+                if (
+                    this.value === ""
+                ) {
+                    return;
+                }
+
+
+                const fechaSeleccionada =
+                    new Date(
+                        this.value +
+                        "T00:00:00"
+                    );
+
+
+                const diaSemana =
+                    fechaSeleccionada.getDay();
+
+
+                /* DOMINGO */
+
+                if (
+                    diaSemana === 0
+                ) {
+
+                    alert(
+                        "💅 Los domingos no hay atención.\n\nPor favor, selecciona otro día."
+                    );
+
+
+                    this.value = "";
+
+                    horaSelect.value = "";
+
+                    return;
+                }
+
+
+                cargarDisponibilidad();
+
+            }
+        );
+
+
+
+        /* =========================================
+           RESERVAR CITA
+        ========================================= */
+
+        async function reservarCita() {
+
+
+            const nombre =
+                nombreInput.value.trim();
+
+
+            const fecha =
+                fechaInput.value;
+
+
+            const hora =
+                horaSelect.value;
+
+
+
+            /* COMPROBAR NOMBRE */
+
+            if (
+                nombre === ""
+            ) {
+
+                alert(
+                    "👤 Por favor, escribe tu nombre."
+                );
+
+                nombreInput.focus();
+
+                return;
+            }
+
+
+
+            /* COMPROBAR FECHA */
+
+            if (
+                fecha === ""
+            ) {
+
+                alert(
+                    "📅 Por favor, selecciona una fecha."
+                );
+
+                fechaInput.focus();
+
+                return;
+            }
+
+
+
+            /* COMPROBAR HORA */
+
+            if (
+                hora === ""
+            ) {
+
+                alert(
+                    "🕐 Por favor, selecciona una hora."
+                );
+
+                horaSelect.focus();
+
+                return;
+            }
+
+
+
+            /* COMPROBAR DOMINGO */
+
+            const diaSemana =
+                new Date(
+                    fecha +
+                    "T00:00:00"
+                ).getDay();
+
+
+            if (
+                diaSemana === 0
+            ) {
+
+                alert(
+                    "💅 Los domingos no hay atención."
+                );
+
+                fechaInput.value = "";
+
+                return;
+            }
+
+
+
+            /* DESACTIVAR BOTON */
+
+            botonReservar.disabled =
+                true;
+
+            botonReservar.innerText =
+                "⏳ Registrando...";
+
+
+
+            try {
+
+
+                /* ENVIAR A GOOGLE SHEETS */
+
+                const respuesta =
+                    await fetch(
+                        URL_RESERVAS,
+                        {
+
+                            method: "POST",
+
+                            body:
+                                JSON.stringify({
+
+                                    nombre:
+                                        nombre,
+
+                                    fecha:
+                                        fecha,
+
+                                    hora:
+                                        hora
+
+                                })
+
+                        }
+                    );
+
+
+                const resultado =
+                    await respuesta.json();
+
+
+
+                /* YA ESTABA OCUPADA */
+
+                if (
+                    resultado.estado ===
+                    "ocupado"
+                ) {
+
+
+                    alert(
+                        "🔒 Lo sentimos.\n\nEsa hora acaba de ser reservada por otra persona."
+                    );
+
+
+                    await
+                        cargarDisponibilidad();
+
+
+                    return;
+                }
+
+
+
+                /* RESERVA CORRECTA */
+
+                if (
+                    resultado.estado ===
+                    "ok"
+                ) {
+
+
+                    /* FECHA BONITA */
+
+                    const fechaBonita =
+                        new Date(
+                            fecha +
+                            "T00:00:00"
+                        ).toLocaleDateString(
+                            "es-ES",
+                            {
+                                weekday:
+                                    "long",
+
+                                day:
+                                    "numeric",
+
+                                month:
+                                    "long",
+
+                                year:
+                                    "numeric"
+                            }
+                        );
+
+
+                    /* MOSTRAR CONFIRMACION */
+
+                    mensaje.style.display =
+                        "block";
+
+
+                    mensaje.innerHTML =
+
+                        "✨ ¡Reserva realizada! ✨" +
+
+                        "<br><br>" +
+
+                        "👤 " +
+                        nombre +
+
+                        "<br>" +
+
+                        "📅 " +
+                        fechaBonita +
+
+                        "<br>" +
+
+                        "🕐 " +
+                        hora +
+
+                        "<br><br>" +
+
+                        "📲 Ahora se abrirá WhatsApp para enviar la reserva.";
+
+
+
+                    /* MENSAJE WHATSAPP */
+
+                    const textoWhatsApp =
+
+                        "💅 NUEVA RESERVA" +
+
+                        "\n\n" +
+
+                        "👤 Cliente: " +
+                        nombre +
+
+                        "\n" +
+
+                        "📅 Fecha: " +
+                        fechaBonita +
+
+                        "\n" +
+
+                        "🕐 Hora: " +
+                        hora;
+
+
+
+                    const whatsapp =
+
+                        "https://wa.me/5354019544?text=" +
+
+                        encodeURIComponent(
+                            textoWhatsApp
+                        );
+
+
+
+                    /*
+                       ESPERAR UN MOMENTO
+                       PARA MOSTRAR LA CONFIRMACION
+                    */
+
+                    setTimeout(
+                        function() {
+
+                            window.location.href =
+                                whatsapp;
+
+                        },
+                        1200
+                    );
+
+
+
+                    /* LIMPIAR */
+
+                    nombreInput.value =
+                        "";
+
+                    horaSelect.value =
+                        "";
+
+
+
+                    /* ACTUALIZAR HORARIOS */
+
+                    cargarDisponibilidad();
+
+                }
+
+
+            }
+            catch (error) {
+
+                console.error(error);
+
+                alert(
+                    "❌ No se pudo registrar la reserva.\n\nComprueba tu conexión a Internet e inténtalo nuevamente."
+                );
+
+            }
+            finally {
+
+                botonReservar.disabled =
+                    false;
+
+                botonReservar.innerText =
+                    "💅 Reservar cita";
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
+```
