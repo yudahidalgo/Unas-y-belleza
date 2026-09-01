@@ -1,540 +1,586 @@
-
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uñas y Belleza</title>
 
-    <title>Uñas y Belleza</title>
+<style>
 
-    <style>
+*{
+    box-sizing:border-box;
+}
 
-        * {
-            box-sizing: border-box;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        body {
-            margin: 0;
-            padding: 20px 12px 40px;
+body{
+    margin:0;
+    padding:20px 10px 40px;
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    text-align:center;
+    color:#5a3745;
 
-            font-family: "Trebuchet MS", Arial, sans-serif;
+    /* NUEVO FONDO */
+    background-image:url("images.jpg.png");
+    background-size:cover;
+    background-position:center top;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
 
-            text-align: center;
+    min-height:100vh;
+}
 
-            color: #5A3745;
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(255,255,255,.18);
+    z-index:-1;
+}
 
-            background-image: url("images.jpg");
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-        }
 
+/* =========================
+   TITULO
+========================= */
 
-        /* CAPAS SUAVES PARA QUE LAS LETRAS SE VEAN */
+h1{
+    display:table;
+    margin:10px auto 15px;
+    padding:12px 24px;
 
-        body::before {
-            content: "";
+    font-family:Georgia,serif;
+    font-size:clamp(36px,9vw,52px);
+    font-style:italic;
 
-            position: fixed;
+    color:#8b1e4d;
 
-            top: 0;
-            left: 0;
+    background:rgba(255,255,255,.90);
 
-            width: 100%;
-            height: 100%;
+    border-radius:24px;
 
-            background: rgba(255,255,255,0.12);
+    box-shadow:0 6px 20px rgba(0,0,0,.15);
+}
 
-            z-index: -1;
-        }
 
+/* =========================
+   DESCRIPCION
+========================= */
 
-        /* TITULO */
+.descripcion{
+    display:table;
 
-        h1 {
-            display: table;
+    max-width:92%;
 
-            margin: 10px auto 15px;
+    margin:0 auto 18px;
 
-            padding: 12px 24px;
+    padding:10px 18px;
 
-            font-family: Georgia, serif;
+    font-size:18px;
 
-            font-size: clamp(36px, 9vw, 52px);
+    background:rgba(255,255,255,.90);
 
-            font-style: italic;
+    border-radius:16px;
 
-            color: #8B1E4D;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
 
-            background: rgba(255,255,255,0.82);
 
-            border-radius: 22px;
+/* =========================
+   BOTONES
+========================= */
 
-            box-shadow:
-                0 5px 18px rgba(0,0,0,0.12);
+.boton{
 
-            text-shadow:
-                0 2px 4px rgba(0,0,0,0.15);
-        }
+    display:inline-block;
 
+    border:none;
 
-        /* DESCRIPCION */
+    padding:15px 26px;
 
-        .descripcion {
-            width: fit-content;
+    margin:8px 5px;
 
-            max-width: 90%;
+    min-width:240px;
 
-            margin: 0 auto 20px;
+    border-radius:35px;
 
-            padding: 10px 18px;
+    background:linear-gradient(
+        135deg,
+        #8b1e4d,
+        #bd4c78
+    );
 
-            font-size: 19px;
+    color:white;
 
-            background: rgba(255,255,255,0.82);
+    font-size:18px;
 
-            border-radius: 16px;
+    font-weight:bold;
 
-            box-shadow:
-                0 4px 12px rgba(0,0,0,0.10);
-        }
+    text-decoration:none;
 
+    cursor:pointer;
 
-        /* BOTONES */
+    box-shadow:
+        0 7px 18px rgba(91,35,60,.25);
 
-        .boton {
-            display: inline-block;
+    transition:.2s;
+}
 
-            border: none;
+.boton:hover{
+    transform:translateY(-2px);
+}
 
-            padding: 15px 28px;
+.boton:active{
+    transform:scale(.97);
+}
 
-            margin: 12px 5px;
+.boton:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
 
-            min-width: 220px;
 
-            border-radius: 35px;
+/* =========================
+   TITULOS
+========================= */
 
-            background: linear-gradient(
-                135deg,
-                #8B1E4D,
-                #B63B6D
-            );
+h2{
 
-            color: white;
+    display:table;
 
-            font-size: 18px;
+    margin:38px auto 22px;
 
-            font-weight: bold;
+    padding:9px 22px;
 
-            text-decoration: none;
+    font-family:Georgia,serif;
 
-            cursor: pointer;
+    font-style:italic;
 
-            box-shadow:
-                0 7px 18px rgba(91,35,60,0.25);
+    font-size:30px;
 
-            transition:
-                transform 0.2s,
-                box-shadow 0.2s;
-        }
+    color:#8b1e4d;
 
+    background:rgba(255,255,255,.90);
 
-        .boton:hover {
-            transform: translateY(-3px);
+    border-radius:18px;
 
-            box-shadow:
-                0 10px 22px rgba(91,35,60,0.30);
-        }
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
 
 
-        .boton:active {
-            transform: scale(0.97);
-        }
+/* =========================
+   SERVICIOS
+========================= */
 
+.servicios{
 
-        /* TITULOS DE SECCION */
+    display:flex;
 
-        h2 {
-            display: table;
+    justify-content:center;
 
-            margin: 40px auto 25px;
+    align-items:stretch;
 
-            padding: 9px 22px;
+    flex-wrap:wrap;
 
-            font-family: Georgia, serif;
+    gap:18px;
 
-            font-style: italic;
+    max-width:950px;
 
-            font-size: 30px;
+    margin:auto;
+}
 
-            color: #A02C5A;
+.servicio{
 
-            background: rgba(255,255,255,0.82);
+    width:270px;
 
-            border-radius: 18px;
+    padding:22px 18px;
 
-            box-shadow:
-                0 4px 14px rgba(0,0,0,0.10);
-        }
+    background:rgba(255,255,255,.94);
 
+    border-radius:22px;
 
-        /* SERVICIOS */
+    box-shadow:
+        0 7px 20px rgba(0,0,0,.14);
+}
 
-        .servicios {
+.servicio h3{
 
-            display: flex;
+    margin:5px 0 10px;
 
-            justify-content: center;
+    font-family:Georgia,serif;
 
-            align-items: stretch;
+    font-style:italic;
 
-            flex-wrap: wrap;
+    font-size:27px;
 
-            gap: 20px;
+    color:#8b1e4d;
+}
 
-            width: 100%;
+.servicio p{
 
-            max-width: 950px;
+    font-size:17px;
 
-            margin: auto;
-        }
+    line-height:1.5;
 
+    margin-bottom:0;
+}
 
-        .servicio {
 
-            width: 270px;
+/* =========================
+   RESERVA
+========================= */
 
-            padding: 22px 18px;
+.reserva{
 
-            background: rgba(255,255,255,0.91);
+    width:100%;
 
-            border-radius: 22px;
+    max-width:520px;
 
-            box-shadow:
-                0 7px 20px rgba(0,0,0,0.14);
+    margin:25px auto;
 
-            transition:
-                transform 0.2s;
-        }
+    padding:28px 18px;
 
+    background:rgba(255,255,255,.95);
 
-        .servicio:hover {
-            transform: translateY(-4px);
-        }
+    border-radius:26px;
 
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.16);
+}
 
-        .servicio h3 {
+.campo{
 
-            margin-top: 5px;
+    margin-bottom:22px;
+}
 
-            font-family: Georgia, serif;
+label{
 
-            font-style: italic;
+    display:block;
 
-            font-size: 27px;
+    margin-bottom:9px;
 
-            color: #8B1E4D;
-        }
+    font-family:Georgia,serif;
 
+    font-size:19px;
 
-        .servicio p {
-            font-size: 17px;
+    font-weight:bold;
 
-            line-height: 1.5;
-        }
+    color:#8b1e4d;
+}
 
 
-        .precio {
+/* =========================
+   CAMPOS
+========================= */
 
-            font-size: 19px !important;
+input{
 
-            font-weight: bold;
+    width:100%;
 
-            color: #A02C5A;
-        }
+    max-width:370px;
 
+    padding:14px;
 
-        /* RESERVA */
+    border:2px solid #d9a0b7;
 
-        .reserva {
+    border-radius:13px;
 
-            width: 100%;
+    background:white;
 
-            max-width: 520px;
+    color:#5a3745;
 
-            margin: 25px auto;
+    font-size:17px;
 
-            padding: 30px 20px;
+    text-align:center;
 
-            background: rgba(255,255,255,0.93);
+    outline:none;
+}
 
-            border-radius: 26px;
+input:focus{
 
-            box-shadow:
-                0 8px 25px rgba(0,0,0,0.16);
-        }
+    border-color:#8b1e4d;
 
+    box-shadow:
+        0 0 0 3px rgba(139,30,77,.12);
+}
 
-        .campo {
-            margin-bottom: 22px;
-        }
 
+/* =========================
+   HORARIOS
+========================= */
 
-        label {
+#horarios{
+    display:none;
+}
 
-            display: block;
+.horas{
 
-            margin-bottom: 7px;
+    display:grid;
 
-            font-family: Georgia, serif;
+    grid-template-columns:1fr 1fr;
 
-            font-size: 19px;
+    gap:12px;
 
-            font-weight: bold;
+    max-width:390px;
 
-            color: #8B1E4D;
-        }
+    margin:auto;
+}
 
+.hora{
 
-        /* CAMPOS */
+    padding:16px 8px;
 
-        input,
-        select {
+    border:2px solid #d9a0b7;
 
-            width: 100%;
+    border-radius:15px;
 
-            max-width: 350px;
+    background:white;
 
-            padding: 14px 15px;
+    font-size:16px;
 
-            border: 2px solid #D9A0B7;
+    font-weight:bold;
 
-            border-radius: 13px;
+    cursor:pointer;
 
-            background: #fff;
+    transition:.2s;
+}
 
-            color: #5A3745;
+.hora:hover:not(:disabled){
+    transform:translateY(-2px);
+}
 
-            font-size: 17px;
+.hora.disponible{
 
-            text-align: center;
+    background:#e8f7ec;
 
-            box-shadow:
-                0 3px 8px rgba(0,0,0,0.06);
+    border-color:#78be8c;
 
-            transition:
-                border-color 0.2s,
-                box-shadow 0.2s;
-        }
+    color:#26733c;
+}
 
+.hora.ocupada{
 
-        input:focus,
-        select:focus {
+    background:#f3e5e5;
 
-            outline: none;
+    border-color:#d5b5b5;
 
-            border-color: #8B1E4D;
+    color:#a32626;
 
-            box-shadow:
-                0 0 0 3px rgba(139,30,77,0.12);
-        }
+    cursor:not-allowed;
+}
 
+.hora.seleccionada{
 
-        /* FECHA */
+    background:#8b1e4d;
 
-        #fecha {
+    border-color:#8b1e4d;
 
-            cursor: pointer;
+    color:white;
+}
 
-            color: #6D4052;
+.estado-hora{
 
-            font-weight: bold;
-        }
+    display:block;
 
+    margin-top:5px;
 
-        /* HORAS OCUPADAS */
+    font-size:13px;
+}
 
-        select option:disabled {
 
-            color: #999;
+/* =========================
+   MENSAJE
+========================= */
 
-            background: #eeeeee;
-        }
+#mensaje{
 
+    display:none;
 
-        /* MENSAJE DE CONFIRMACION */
+    margin-top:20px;
 
-        #mensaje {
+    padding:20px 15px;
 
-            display: none;
+    border-radius:18px;
 
-            margin-top: 20px;
+    background:#fff6fa;
 
-            padding: 20px;
+    border:2px solid #d9a0b7;
 
-            border-radius: 18px;
+    color:#8b1e4d;
 
-            background: #FFF6FA;
+    font-size:17px;
 
-            border: 2px solid #D9A0B7;
+    font-weight:bold;
 
-            color: #8B1E4D;
+    line-height:1.6;
+}
 
-            font-size: 17px;
 
-            font-weight: bold;
+/* =========================
+   CONTACTO FINAL
+========================= */
 
-            line-height: 1.6;
+.contacto-final{
 
-            box-shadow:
-                0 5px 15px rgba(0,0,0,0.10);
+    max-width:520px;
 
-            animation:
-                aparecer 0.3s ease;
-        }
+    margin:45px auto 10px;
 
+    padding:28px 18px;
 
-        @keyframes aparecer {
+    background:rgba(255,255,255,.94);
 
-            from {
-                opacity: 0;
+    border-radius:25px;
 
-                transform: translateY(10px);
-            }
+    box-shadow:
+        0 7px 20px rgba(0,0,0,.13);
+}
 
-            to {
-                opacity: 1;
+.contacto-final h2{
 
-                transform: translateY(0);
-            }
-        }
+    margin:0 auto 12px;
 
+    font-size:26px;
+}
 
-        /* MENSAJE DE CARGA */
+.contacto-final p{
 
-        .cargando {
+    margin:8px auto 20px;
 
-            opacity: 0.65;
+    max-width:400px;
 
-            pointer-events: none;
-        }
+    font-size:17px;
 
+    line-height:1.5;
+}
 
-        /* CELULARES */
 
-        @media (max-width: 600px) {
+/* =========================
+   PIE DE PAGINA
+========================= */
 
-            body {
+footer{
 
-                padding:
-                    15px 8px 35px;
+    margin-top:30px;
 
-                background-attachment:
-                    scroll;
-            }
+    padding:15px;
 
+    color:#8b1e4d;
 
-            h1 {
+    font-size:14px;
 
-                margin-top: 5px;
+    font-weight:bold;
+}
 
-                padding:
-                    10px 18px;
 
-                font-size:
-                    37px;
-            }
+/* =========================
+   CELULAR
+========================= */
 
+@media(max-width:600px){
 
-            .descripcion {
+    body{
 
-                font-size: 17px;
+        padding:
+        12px 7px 35px;
 
-                line-height: 1.4;
-            }
+        background-attachment:scroll;
 
+        background-position:center top;
+    }
 
-            h2 {
+    h1{
 
-                margin-top: 32px;
+        font-size:37px;
 
-                font-size: 26px;
+        padding:
+        10px 17px;
+    }
 
-                padding:
-                    8px 17px;
-            }
+    .descripcion{
 
+        font-size:17px;
+    }
 
-            .boton {
+    .boton{
 
-                width: 95%;
+        width:95%;
 
-                max-width: 350px;
+        max-width:350px;
 
-                min-width: 0;
+        min-width:0;
 
-                padding:
-                    15px 20px;
+        font-size:17px;
+    }
 
-                font-size: 17px;
-            }
+    h2{
 
+        font-size:26px;
+    }
 
-            .servicios {
+    .servicios{
 
-                flex-direction: column;
+        flex-direction:column;
 
-                align-items: center;
+        align-items:center;
+    }
 
-                gap: 16px;
-            }
+    .servicio{
 
+        width:94%;
 
-            .servicio {
+        max-width:360px;
+    }
 
-                width: 94%;
+    .reserva{
 
-                max-width: 360px;
+        width:96%;
 
-                padding:
-                    20px 17px;
-            }
+        padding:
+        24px 12px;
+    }
 
+    .horas{
 
-            .reserva {
+        grid-template-columns:1fr;
 
-                width: 95%;
+        max-width:330px;
+    }
 
-                padding:
-                    25px 15px;
+    .hora{
 
-                border-radius: 22px;
-            }
+        font-size:17px;
+    }
 
+    .contacto-final{
 
-            input,
-            select {
+        width:96%;
 
-                width: 100%;
+        padding:
+        25px 15px;
+    }
 
-                font-size: 17px;
+}
 
-                padding: 14px 10px;
-            }
 
+/* =========================
+   PANTALLAS GRANDES
+========================= */
 
-            label {
+@media(min-width:1000px){
 
-                font-size: 18px;
-            }
+    body{
 
-        }
+        background-size:cover;
 
-    </style>
+        background-position:center center;
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -542,741 +588,1115 @@
 <body>
 
 
-    <!-- TITULO -->
+<!-- =========================
+     TITULO
+========================= -->
 
-    <h1>
-        Uñas y Belleza
-    </h1>
+<h1>
+    Uñas y Belleza
+</h1>
 
 
-    <p class="descripcion">
-        Manicure profesional para resaltar tu belleza
+<p class="descripcion">
+    Manicure profesional para resaltar tu belleza
+</p>
+
+
+<!-- =========================
+     RESERVAR ARRIBA
+========================= -->
+
+<a
+    href="#reserva"
+    class="boton">
+
+    📅 Reservar mi cita
+
+</a>
+
+
+<!-- =========================
+     SERVICIOS
+========================= -->
+
+<h2>
+    Nuestros Servicios
+</h2>
+
+
+<div class="servicios">
+
+
+    <div class="servicio">
+
+        <h3>
+            💅 Manicure
+        </h3>
+
+        <p>
+            Cuidado y embellecimiento
+            de tus uñas.
+        </p>
+
+    </div>
+
+
+    <div class="servicio">
+
+        <h3>
+            🦶 Pedicure
+        </h3>
+
+        <p>
+            Cuidado y belleza
+            para tus pies.
+        </p>
+
+    </div>
+
+
+    <div class="servicio">
+
+        <h3>
+            ✨ Uñas de gel
+        </h3>
+
+        <p>
+            Uñas bonitas,
+            resistentes y duraderas.
+        </p>
+
+    </div>
+
+
+</div>
+
+
+<!-- =========================
+     RESERVA
+========================= -->
+
+<h2 id="reserva">
+    Reserva tu cita
+</h2>
+
+
+<div class="reserva">
+
+
+    <!-- NOMBRE -->
+
+    <div class="campo">
+
+        <label for="nombre">
+            👤 Tu nombre
+        </label>
+
+        <input
+            type="text"
+            id="nombre"
+            placeholder="Escribe tu nombre"
+            autocomplete="name">
+
+    </div>
+
+
+    <!-- FECHA -->
+
+    <div class="campo">
+
+        <label for="fecha">
+            📅 Selecciona el día
+        </label>
+
+        <input
+            type="date"
+            id="fecha">
+
+    </div>
+
+
+    <!-- HORARIOS -->
+
+    <div
+        class="campo"
+        id="horarios">
+
+        <label>
+            🕐 Horarios para este día
+        </label>
+
+
+        <div class="horas">
+
+
+            <button
+                type="button"
+                class="hora"
+                data-hora="10:00 AM"
+                onclick="seleccionarHora(this)">
+            </button>
+
+
+            <button
+                type="button"
+                class="hora"
+                data-hora="2:00 PM"
+                onclick="seleccionarHora(this)">
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- RESERVAR -->
+
+    <button
+        type="button"
+        class="boton"
+        id="botonReservar"
+        onclick="reservarCita()">
+
+        💅 Reservar cita
+
+    </button>
+
+
+    <!-- MENSAJE -->
+
+    <div id="mensaje"></div>
+
+
+</div>
+
+
+<!-- =========================
+     WHATSAPP AL FINAL
+========================= -->
+
+<div class="contacto-final">
+
+
+    <h2>
+        💬 ¿Tienes alguna duda?
+    </h2>
+
+
+    <p>
+        Si necesitas información o tienes alguna pregunta,
+        escríbenos por WhatsApp.
     </p>
 
 
-    <!-- WHATSAPP -->
-
     <a
-        class="boton"
         href="https://wa.me/5354019544"
-        target="_blank">
+        target="_blank"
+        class="boton">
 
-        💬 Contactar por WhatsApp
+        📲 Escribir por WhatsApp
 
     </a>
 
 
-    <!-- SERVICIOS -->
+</div>
 
-    <h2>
-        Nuestros Servicios
-    </h2>
 
+<footer>
 
-    <div class="servicios">
+    Uñas y Belleza 💅
 
+</footer>
 
-        <div class="servicio">
 
-            <h3>
-                Manicure
-            </h3>
+<script>
 
-            <p>
-                Cuidado y embellecimiento
-                de tus uñas.
-            </p>
 
-            <p class="precio">
-                Desde R$ 30
-            </p>
+/* ========================================
+   GOOGLE APPS SCRIPT
+======================================== */
 
-        </div>
+const URL_RESERVAS =
+"https://script.google.com/macros/s/AKfycbwa9M0vfb7a3h75m8DWVdHvXS5ht68IbgOSJ3qTPaXlZxPiHYXBT-_h5WRrdn2AbEs/exec";
 
 
-        <div class="servicio">
+/* ========================================
+   HORARIOS
+======================================== */
 
-            <h3>
-                Pedicure
-            </h3>
+const HORAS = [
 
-            <p>
-                Cuidado y belleza
-                para tus pies.
-            </p>
+    "10:00 AM",
 
-            <p class="precio">
-                Desde R$ 40
-            </p>
+    "2:00 PM"
 
-        </div>
+];
 
 
-        <div class="servicio">
+/* ========================================
+   ELEMENTOS
+======================================== */
 
-            <h3>
-                Uñas de gel
-            </h3>
+const fechaInput =
+document.getElementById("fecha");
 
-            <p>
-                Uñas bonitas, resistentes
-                y duraderas.
-            </p>
+const nombreInput =
+document.getElementById("nombre");
 
-            <p class="precio">
-                Desde R$ 60
-            </p>
+const horarios =
+document.getElementById("horarios");
 
-        </div>
+const mensaje =
+document.getElementById("mensaje");
 
+const botonReservar =
+document.getElementById("botonReservar");
 
-    </div>
 
+/* ========================================
+   VARIABLES
+======================================== */
 
-    <!-- RESERVA -->
+let reservas = [];
 
-    <h2>
-        Reserva tu cita
-    </h2>
+let horaSeleccionada = "";
 
 
-    <div class="reserva">
+/* ========================================
+   FECHA DE HOY
+======================================== */
 
+const hoy =
+new Date();
 
-        <!-- NOMBRE -->
+hoy.setHours(
+    0,
+    0,
+    0,
+    0
+);
 
-        <div class="campo">
 
-            <label for="nombre">
-                👤 Tu nombre
-            </label>
+function obtenerFechaLocal(fecha){
 
-            <input
-                type="text"
-                id="nombre"
-                placeholder="Escribe tu nombre"
-                autocomplete="name">
+    const año =
+    fecha.getFullYear();
 
-        </div>
+    const mes =
+    String(
+        fecha.getMonth()+1
+    ).padStart(2,"0");
 
+    const dia =
+    String(
+        fecha.getDate()
+    ).padStart(2,"0");
 
-        <!-- FECHA -->
+    return año+"-"+mes+"-"+dia;
 
-        <div class="campo">
+}
 
-            <label for="fecha">
-                📅 Selecciona el día
-            </label>
 
-            <input
-                type="date"
-                id="fecha">
+fechaInput.min =
+obtenerFechaLocal(hoy);
 
-        </div>
 
+/* ========================================
+   NORMALIZAR FECHA
+======================================== */
 
-        <!-- HORA -->
+function normalizarFecha(valor){
 
-        <div class="campo">
+    if(
+        valor === null ||
+        valor === undefined
+    ){
 
-            <label for="hora">
-                🕐 Selecciona la hora
-            </label>
+        return "";
 
-            <select id="hora">
+    }
 
-                <option value="">
-                    Selecciona una hora
-                </option>
 
-                <option value="10:00 AM">
-                    10:00 AM
-                </option>
+    const texto =
+    String(valor).trim();
 
-                <option value="2:00 PM">
-                    2:00 PM
-                </option>
 
-            </select>
+    if(
+        /^\d{4}-\d{2}-\d{2}$/.test(texto)
+    ){
 
-        </div>
+        return texto;
 
+    }
 
-        <!-- BOTON RESERVAR -->
 
-        <button
-            class="boton"
-            id="botonReservar"
-            onclick="reservarCita()">
+    if(
+        texto.includes("T")
+    ){
 
-            💅 Reservar cita
+        return texto.substring(0,10);
 
-        </button>
+    }
 
 
-        <!-- CONFIRMACION -->
+    const fecha =
+    new Date(valor);
 
-        <div id="mensaje"></div>
 
+    if(
+        !isNaN(
+            fecha.getTime()
+        )
+    ){
 
-    </div>
+        return obtenerFechaLocal(fecha);
 
+    }
 
-    <script>
 
+    return texto;
 
-        /* =========================================
-           CONEXION CON GOOGLE SHEETS
-        ========================================= */
+}
 
-        const URL_RESERVAS =
-        "https://script.google.com/macros/s/AKfycbwa9M0vfb7a3h75m8DWVdHvXS5ht68IbgOSJ3qTPaXlZxPiHYXBT-_h5WRrdn2AbEs/exec";
 
+/* ========================================
+   NORMALIZAR HORA
+======================================== */
 
+function normalizarHora(valor){
 
-        /* =========================================
-           ELEMENTOS
-        ========================================= */
+    if(
+        valor === null ||
+        valor === undefined
+    ){
 
-        const fechaInput =
-            document.getElementById("fecha");
+        return "";
 
+    }
 
-        const horaSelect =
-            document.getElementById("hora");
+    return String(valor)
+        .trim()
+        .toUpperCase();
 
+}
 
-        const nombreInput =
-            document.getElementById("nombre");
 
+/* ========================================
+   CARGAR RESERVAS
+======================================== */
 
-        const mensaje =
-            document.getElementById("mensaje");
+async function cargarReservas(){
 
+    try{
 
-        const botonReservar =
-            document.getElementById("botonReservar");
+        const respuesta =
+        await fetch(
+            URL_RESERVAS+
+            "?t="+
+            Date.now()
+        );
 
 
+        if(!respuesta.ok){
 
-        /* =========================================
-           FECHA MINIMA = HOY
-        ========================================= */
-
-        const hoy =
-            new Date();
-
-
-        const año =
-            hoy.getFullYear();
-
-
-        const mes =
-            String(
-                hoy.getMonth() + 1
-            ).padStart(2, "0");
-
-
-        const dia =
-            String(
-                hoy.getDate()
-            ).padStart(2, "0");
-
-
-        const fechaMinima =
-            año + "-" +
-            mes + "-" +
-            dia;
-
-
-        fechaInput.min =
-            fechaMinima;
-
-
-
-        /* =========================================
-           COMPROBAR HORAS OCUPADAS
-        ========================================= */
-
-        async function cargarDisponibilidad() {
-
-
-            const fecha =
-                fechaInput.value;
-
-
-            if (fecha === "") {
-                return;
-            }
-
-
-            try {
-
-
-                const respuesta =
-                    await fetch(
-                        URL_RESERVAS
-                    );
-
-
-                const reservas =
-                    await respuesta.json();
-
-
-                const ocupadas =
-                    reservas
-                    .filter(function(reserva) {
-
-                        return
-                            reserva.fecha === fecha;
-
-                    })
-                    .map(function(reserva) {
-
-                        return String(
-                            reserva.hora
-                        );
-
-                    });
-
-
-                /* RESTABLECER HORAS */
-
-                horaSelect.options[1].disabled =
-                    false;
-
-                horaSelect.options[1].text =
-                    "10:00 AM";
-
-
-                horaSelect.options[2].disabled =
-                    false;
-
-                horaSelect.options[2].text =
-                    "2:00 PM";
-
-
-
-                /* MARCAR OCUPADAS */
-
-                for (
-                    let i = 1;
-                    i < horaSelect.options.length;
-                    i++
-                ) {
-
-
-                    const opcion =
-                        horaSelect.options[i];
-
-
-                    if (
-                        ocupadas.includes(
-                            opcion.value
-                        )
-                    ) {
-
-                        opcion.disabled =
-                            true;
-
-                        opcion.text =
-                            opcion.value +
-                            " — OCUPADA";
-
-                    }
-
-                }
-
-
-                horaSelect.value = "";
-
-
-            }
-            catch (error) {
-
-                console.error(error);
-
-                alert(
-                    "No se pudo comprobar la disponibilidad."
-                );
-
-            }
+            throw new Error(
+                "Error HTTP"
+            );
 
         }
 
 
-
-        /* =========================================
-           COMPROBAR DOMINGO
-        ========================================= */
-
-        fechaInput.addEventListener(
-            "change",
-            function() {
+        const datos =
+        await respuesta.json();
 
 
-                if (
-                    this.value === ""
-                ) {
-                    return;
-                }
+        if(
+            Array.isArray(datos)
+        ){
+
+            reservas =
+            datos;
+
+        }
+
+        else{
+
+            reservas =
+            [];
+
+        }
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Error cargando reservas:",
+            error
+        );
+
+        reservas =
+        [];
+
+    }
+
+}
 
 
-                const fechaSeleccionada =
-                    new Date(
-                        this.value +
-                        "T00:00:00"
-                    );
+/* ========================================
+   COMPROBAR SI ESTÁ RESERVADA
+======================================== */
+
+function estaReservada(
+    fecha,
+    hora
+){
+
+    return reservas.some(
+        function(reserva){
+
+            const fechaReserva =
+            normalizarFecha(
+                reserva.fecha
+            );
+
+            const horaReserva =
+            normalizarHora(
+                reserva.hora
+            );
+
+            return (
+
+                fechaReserva ===
+                fecha
+
+                &&
+
+                horaReserva ===
+                hora.toUpperCase()
+
+            );
+
+        }
+    );
+
+}
 
 
-                const diaSemana =
-                    fechaSeleccionada.getDay();
+/* ========================================
+   CONTAR RESERVAS
+======================================== */
+
+function reservasDelDia(
+    fecha
+){
+
+    let cantidad = 0;
 
 
-                /* DOMINGO */
+    HORAS.forEach(
+        function(hora){
 
-                if (
-                    diaSemana === 0
-                ) {
+            if(
+                estaReservada(
+                    fecha,
+                    hora
+                )
+            ){
 
-                    alert(
-                        "💅 Los domingos no hay atención.\n\nPor favor, selecciona otro día."
-                    );
+                cantidad++;
 
+            }
 
-                    this.value = "";
-
-                    horaSelect.value = "";
-
-                    return;
-                }
+        }
+    );
 
 
-                cargarDisponibilidad();
+    return cantidad;
+
+}
+
+
+/* ========================================
+   MOSTRAR DISPONIBILIDAD
+======================================== */
+
+async function mostrarDisponibilidad(){
+
+    const fecha =
+    fechaInput.value;
+
+
+    if(!fecha){
+
+        horarios.style.display =
+        "none";
+
+        return;
+
+    }
+
+
+    await cargarReservas();
+
+
+    const ocupadas =
+    reservasDelDia(
+        fecha
+    );
+
+
+    /* =========================
+       DIA COMPLETAMENTE OCUPADO
+    ========================= */
+
+    if(
+        ocupadas >= HORAS.length
+    ){
+
+        horarios.style.display =
+        "none";
+
+        mensaje.style.display =
+        "block";
+
+        mensaje.innerHTML =
+
+        "🔴 <strong>Este día está completamente reservado.</strong>" +
+
+        "<br><br>" +
+
+        "Por favor, selecciona otro día.";
+
+        horaSeleccionada =
+        "";
+
+        return;
+
+    }
+
+
+    /* =========================
+       HAY DISPONIBILIDAD
+    ========================= */
+
+    mensaje.style.display =
+    "none";
+
+    horarios.style.display =
+    "block";
+
+
+    horaSeleccionada =
+    "";
+
+
+    const botones =
+    document.querySelectorAll(
+        ".hora"
+    );
+
+
+    botones.forEach(
+        function(boton){
+
+            const hora =
+            boton.dataset.hora;
+
+
+            boton.classList.remove(
+                "ocupada"
+            );
+
+            boton.classList.remove(
+                "disponible"
+            );
+
+            boton.classList.remove(
+                "seleccionada"
+            );
+
+
+            if(
+                estaReservada(
+                    fecha,
+                    hora
+                )
+            ){
+
+                boton.disabled =
+                true;
+
+                boton.classList.add(
+                    "ocupada"
+                );
+
+                boton.innerHTML =
+
+                "🔒 "+
+                hora+
+
+                '<span class="estado-hora">' +
+                "RESERVADA" +
+                "</span>";
+
+            }
+
+            else{
+
+                boton.disabled =
+                false;
+
+                boton.classList.add(
+                    "disponible"
+                );
+
+                boton.innerHTML =
+
+                "🟢 "+
+                hora+
+
+                '<span class="estado-hora">' +
+                "DISPONIBLE" +
+                "</span>";
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ========================================
+   CAMBIO DE FECHA
+======================================== */
+
+fechaInput.addEventListener(
+    "change",
+    async function(){
+
+        const fecha =
+        this.value;
+
+
+        if(!fecha){
+
+            horarios.style.display =
+            "none";
+
+            return;
+
+        }
+
+
+        /* FECHA PASADA */
+
+        if(
+            fecha <
+            obtenerFechaLocal(hoy)
+        ){
+
+            alert(
+                "📅 No puedes seleccionar una fecha anterior a hoy."
+            );
+
+            this.value =
+            "";
+
+            horarios.style.display =
+            "none";
+
+            return;
+
+        }
+
+
+        /* DOMINGO */
+
+        const fechaObj =
+        new Date(
+            fecha+
+            "T00:00:00"
+        );
+
+
+        if(
+            fechaObj.getDay() === 0
+        ){
+
+            alert(
+                "💅 Los domingos no hay atención. Selecciona otro día."
+            );
+
+            this.value =
+            "";
+
+            horarios.style.display =
+            "none";
+
+            return;
+
+        }
+
+
+        await mostrarDisponibilidad();
+
+    }
+);
+
+
+/* ========================================
+   SELECCIONAR HORA
+======================================== */
+
+function seleccionarHora(
+    boton
+){
+
+    if(
+        boton.disabled
+    ){
+
+        return;
+
+    }
+
+
+    document
+        .querySelectorAll(".hora")
+        .forEach(
+            function(botonHora){
+
+                botonHora.classList.remove(
+                    "seleccionada"
+                );
 
             }
         );
 
 
+    boton.classList.add(
+        "seleccionada"
+    );
 
-        /* =========================================
-           RESERVAR CITA
-        ========================================= */
 
-        async function reservarCita() {
+    horaSeleccionada =
+    boton.dataset.hora;
 
+}
 
-            const nombre =
-                nombreInput.value.trim();
 
+/* ========================================
+   RESERVAR CITA
+======================================== */
 
-            const fecha =
-                fechaInput.value;
+async function reservarCita(){
 
+    const nombre =
+    nombreInput.value.trim();
 
-            const hora =
-                horaSelect.value;
+    const fecha =
+    fechaInput.value;
 
+    const hora =
+    horaSeleccionada;
 
 
-            /* COMPROBAR NOMBRE */
+    /* NOMBRE */
 
-            if (
-                nombre === ""
-            ) {
+    if(!nombre){
 
-                alert(
-                    "👤 Por favor, escribe tu nombre."
-                );
+        alert(
+            "👤 Escribe tu nombre."
+        );
 
-                nombreInput.focus();
+        nombreInput.focus();
 
-                return;
-            }
+        return;
 
+    }
 
 
-            /* COMPROBAR FECHA */
+    /* FECHA */
 
-            if (
-                fecha === ""
-            ) {
+    if(!fecha){
 
-                alert(
-                    "📅 Por favor, selecciona una fecha."
-                );
+        alert(
+            "📅 Selecciona una fecha."
+        );
 
-                fechaInput.focus();
+        return;
 
-                return;
-            }
+    }
 
 
+    /* HORA */
 
-            /* COMPROBAR HORA */
+    if(!hora){
 
-            if (
-                hora === ""
-            ) {
+        alert(
+            "🕐 Selecciona una hora disponible."
+        );
 
-                alert(
-                    "🕐 Por favor, selecciona una hora."
-                );
+        return;
 
-                horaSelect.focus();
+    }
 
-                return;
-            }
 
+    botonReservar.disabled =
+    true;
 
+    botonReservar.innerText =
+    "⏳ Comprobando...";
 
-            /* COMPROBAR DOMINGO */
 
-            const diaSemana =
-                new Date(
-                    fecha +
-                    "T00:00:00"
-                ).getDay();
+    try{
 
 
-            if (
-                diaSemana === 0
-            ) {
+        /* =========================
+           COMPROBAR NUEVAMENTE
+        ========================= */
 
-                alert(
-                    "💅 Los domingos no hay atención."
-                );
+        await cargarReservas();
 
-                fechaInput.value = "";
 
-                return;
-            }
+        if(
+            estaReservada(
+                fecha,
+                hora
+            )
+        ){
 
+            alert(
+                "🔒 Esa hora acaba de ser reservada. Selecciona otra."
+            );
 
+            await mostrarDisponibilidad();
 
-            /* DESACTIVAR BOTON */
-
-            botonReservar.disabled =
-                true;
-
-            botonReservar.innerText =
-                "⏳ Registrando...";
-
-
-
-            try {
-
-
-                /* ENVIAR A GOOGLE SHEETS */
-
-                const respuesta =
-                    await fetch(
-                        URL_RESERVAS,
-                        {
-
-                            method: "POST",
-
-                            body:
-                                JSON.stringify({
-
-                                    nombre:
-                                        nombre,
-
-                                    fecha:
-                                        fecha,
-
-                                    hora:
-                                        hora
-
-                                })
-
-                        }
-                    );
-
-
-                const resultado =
-                    await respuesta.json();
-
-
-
-                /* YA ESTABA OCUPADA */
-
-                if (
-                    resultado.estado ===
-                    "ocupado"
-                ) {
-
-
-                    alert(
-                        "🔒 Lo sentimos.\n\nEsa hora acaba de ser reservada por otra persona."
-                    );
-
-
-                    await
-                        cargarDisponibilidad();
-
-
-                    return;
-                }
-
-
-
-                /* RESERVA CORRECTA */
-
-                if (
-                    resultado.estado ===
-                    "ok"
-                ) {
-
-
-                    /* FECHA BONITA */
-
-                    const fechaBonita =
-                        new Date(
-                            fecha +
-                            "T00:00:00"
-                        ).toLocaleDateString(
-                            "es-ES",
-                            {
-                                weekday:
-                                    "long",
-
-                                day:
-                                    "numeric",
-
-                                month:
-                                    "long",
-
-                                year:
-                                    "numeric"
-                            }
-                        );
-
-
-                    /* MOSTRAR CONFIRMACION */
-
-                    mensaje.style.display =
-                        "block";
-
-
-                    mensaje.innerHTML =
-
-                        "✨ ¡Reserva realizada! ✨" +
-
-                        "<br><br>" +
-
-                        "👤 " +
-                        nombre +
-
-                        "<br>" +
-
-                        "📅 " +
-                        fechaBonita +
-
-                        "<br>" +
-
-                        "🕐 " +
-                        hora +
-
-                        "<br><br>" +
-
-                        "📲 Ahora se abrirá WhatsApp para enviar la reserva.";
-
-
-
-                    /* MENSAJE WHATSAPP */
-
-                    const textoWhatsApp =
-
-                        "💅 NUEVA RESERVA" +
-
-                        "\n\n" +
-
-                        "👤 Cliente: " +
-                        nombre +
-
-                        "\n" +
-
-                        "📅 Fecha: " +
-                        fechaBonita +
-
-                        "\n" +
-
-                        "🕐 Hora: " +
-                        hora;
-
-
-
-                    const whatsapp =
-
-                        "https://wa.me/5354019544?text=" +
-
-                        encodeURIComponent(
-                            textoWhatsApp
-                        );
-
-
-
-                    /*
-                       ESPERAR UN MOMENTO
-                       PARA MOSTRAR LA CONFIRMACION
-                    */
-
-                    setTimeout(
-                        function() {
-
-                            window.location.href =
-                                whatsapp;
-
-                        },
-                        1200
-                    );
-
-
-
-                    /* LIMPIAR */
-
-                    nombreInput.value =
-                        "";
-
-                    horaSelect.value =
-                        "";
-
-
-
-                    /* ACTUALIZAR HORARIOS */
-
-                    cargarDisponibilidad();
-
-                }
-
-
-            }
-            catch (error) {
-
-                console.error(error);
-
-                alert(
-                    "❌ No se pudo registrar la reserva.\n\nComprueba tu conexión a Internet e inténtalo nuevamente."
-                );
-
-            }
-            finally {
-
-                botonReservar.disabled =
-                    false;
-
-                botonReservar.innerText =
-                    "💅 Reservar cita";
-
-            }
+            return;
 
         }
 
-    </script>
 
+        /* =========================
+           GUARDAR RESERVA
+        ========================= */
+
+        botonReservar.innerText =
+        "⏳ Guardando...";
+
+
+        const respuesta =
+        await fetch(
+            URL_RESERVAS,
+            {
+
+                method:"POST",
+
+                body:
+                JSON.stringify({
+
+                    nombre:
+                    nombre,
+
+                    fecha:
+                    fecha,
+
+                    hora:
+                    hora
+
+                })
+
+            }
+        );
+
+
+        const resultado =
+        await respuesta.json();
+
+
+        /* =========================
+           YA ESTABA RESERVADA
+        ========================= */
+
+        if(
+            resultado.estado ===
+            "ocupado"
+        ){
+
+            alert(
+                "🔒 Esa hora ya está reservada. Selecciona otra."
+            );
+
+            await mostrarDisponibilidad();
+
+            return;
+
+        }
+
+
+        /* =========================
+           RESERVA CORRECTA
+        ========================= */
+
+        if(
+            resultado.estado ===
+            "ok"
+        ){
+
+
+            const fechaBonita =
+            new Date(
+                fecha+
+                "T00:00:00"
+            ).toLocaleDateString(
+                "es-ES",
+                {
+
+                    weekday:"long",
+
+                    day:"numeric",
+
+                    month:"long",
+
+                    year:"numeric"
+
+                }
+            );
+
+
+            mensaje.style.display =
+            "block";
+
+
+            mensaje.innerHTML =
+
+            "✨ <strong>¡CITA RESERVADA!</strong> ✨" +
+
+            "<br><br>" +
+
+            "👤 "+
+            nombre+
+
+            "<br>"+
+
+            "📅 "+
+            fechaBonita+
+
+            "<br>"+
+
+            "🕐 "+
+            hora+
+
+            "<br><br>"+
+
+            "📲 Abriendo WhatsApp...";
+
+
+            /* =========================
+               MENSAJE WHATSAPP
+            ========================= */
+
+            const texto =
+
+            "💅 NUEVA RESERVA" +
+
+            "\n\n"+
+
+            "👤 Cliente: "+
+            nombre+
+
+            "\n"+
+
+            "📅 Fecha: "+
+            fechaBonita+
+
+            "\n"+
+
+            "🕐 Hora: "+
+            hora;
+
+
+            const whatsapp =
+
+            "https://wa.me/5354019544?text="+
+
+            encodeURIComponent(
+                texto
+            );
+
+
+            /* =========================
+               ABRIR WHATSAPP
+            ========================= */
+
+            setTimeout(
+                function(){
+
+                    window.location.href =
+                    whatsapp;
+
+                },
+                1500
+            );
+
+
+            /* LIMPIAR */
+
+            nombreInput.value =
+            "";
+
+            fechaInput.value =
+            "";
+
+            horaSeleccionada =
+            "";
+
+            horarios.style.display =
+            "none";
+
+
+            await cargarReservas();
+
+        }
+
+    }
+
+    catch(error){
+
+        console.error(
+            error
+        );
+
+        alert(
+            "❌ No se pudo registrar la reserva. Comprueba tu conexión a Internet."
+        );
+
+    }
+
+    finally{
+
+        botonReservar.disabled =
+        false;
+
+        botonReservar.innerText =
+        "💅 Reservar cita";
+
+    }
+
+}
+
+
+/* ========================================
+   INICIAR
+======================================== */
+
+cargarReservas();
+
+</script>
 
 </body>
-
 </html>
 
