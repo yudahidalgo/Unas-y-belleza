@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Uñas y Belleza</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background:
+        linear-gradient(rgba(255,255,255,0.82), rgba(255,255,255,0.82)),
+        url("images/images.png") center/cover fixed;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 25px 15px;
+}
+
+header h1 {
+    color: #8b1e4d;
+    font-size: 38px;
+    margin: 0 0 8px;
+}
+
+header p {
+    color: #666;
+    font-size: 17px;
+    margin: 0;
+}
+
+.boton-principal {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 14px 25px;
+    background: #8b1e4d;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.boton-principal:hover {
+    background: #bd4c78;
+}
+
+.servicios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.servicio {
+    background: rgba(255,255,255,0.95);
+    padding: 25px 15px;
+    text-align: center;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.10);
+    border: 1px solid #ead1dc;
+}
+
+.servicio h3 {
+    color: #8b1e4d;
+    margin-top: 0;
+}
+
+.reserva {
+    background: rgba(255,255,255,0.97);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+    margin-top: 25px;
+}
+
+.reserva h2 {
+    text-align: center;
+    color: #8b1e4d;
+}
+
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 7px;
+    font-weight: bold;
+    color: #555;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d9a0b7;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #8b1e4d;
+}
+
+/* CALENDARIO */
+
+.calendario {
+    margin-top: 10px;
+}
+
+.calendario-cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.calendario-cabecera h3 {
+    margin: 0;
+    color: #8b1e4d;
+    text-transform: capitalize;
+}
+
+.btn-mes {
+    border: none;
+    background: #8b1e4d;
+    color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.btn-mes:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.dias-semana,
+.dias {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+}
+
+.dia-semana {
+    text-align: center;
+    font-weight: bold;
+    color: #8b1e4d;
+    font-size: 13px;
+    padding: 7px 0;
+}
+
+.dia {
+    min-height: 48px;
+    border: 1px solid #ead1dc;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+}
+
+.dia:hover:not(:disabled) {
+    transform: scale(1.03);
+}
+
+.dia.vacio {
+    border: none;
+    background: transparent;
+    cursor: default;
+}
+
+.dia.pasado,
+.dia.fin-semana,
+.dia.completo {
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+.dia.pasado {
+    background: #eeeeee;
+    color: #999;
+}
+
+.dia.fin-semana {
+    background: #eeeeee;
+    color: #999;
+}
+
+.dia.disponible {
+    background: #eaf7ee;
+    border-color: #9ed3ad;
+    color: #26733a;
+}
+
+.dia.parcial {
+    background: #fff5cc;
+    border-color: #e0bd42;
+    color: #765d00;
+}
+
+.dia.completo {
+    background: #f5d6d6;
+    border-color: #d94a4a;
+    color: #a00000;
+}
+
+.dia.seleccionado {
+    outline: 3px solid #8b1e4d;
+    outline-offset: 1px;
+}
+
+/* HORARIOS */
+
+.horarios {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.hora {
+    padding: 15px;
+    border-radius: 12px;
+    border: 2px solid #d9a0b7;
+    background: white;
+    color: #8b1e4d;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.hora:hover:not(:disabled) {
+    background: #f9eaf0;
+}
+
+.hora.seleccionada {
+    background: #8b1e4d;
+    color: white;
+    border-color: #8b1e4d;
+}
+
+.hora.ocupada {
+    background: #eeeeee;
+    color: #999;
+    border-color: #ccc;
+    cursor: not-allowed;
+    text-decoration: line-through;
+}
+
+.mensaje {
+    text-align: center;
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 10px;
+    display: none;
+}
+
+.mensaje.exito {
+    display: block;
+    background: #e7f6eb;
+    color: #23733a;
+}
+
+.mensaje.error {
+    display: block;
+    background: #fbe3e3;
+    color: #a00000;
+}
+
+.info-calendario {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #666;
+    text-align: center;
+}
+
+.leyenda {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.leyenda span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.cuadro {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.verde {
+    background: #eaf7ee;
+    border: 1px solid #9ed3ad;
+}
+
+.amarillo {
+    background: #fff5cc;
+    border: 1px solid #e0bd42;
+}
+
+.rojo {
+    background: #f5d6d6;
+    border: 1px solid #d94a4a;
+}
+
+.gris {
+    background: #eeeeee;
+    border: 1px solid #ccc;
+}
+
+/* WHATSAPP */
+
+.whatsapp {
+    margin-top: 25px;
+    padding: 25px;
+    text-align: center;
+    background: rgba(255,255,255,0.96);
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.10);
+}
+
+.whatsapp h2 {
+    color: #8b1e4d;
+}
+
+.whatsapp a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 13px 22px;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 10px;
+    color: #8b1e4d;
+    font-weight: bold;
+}
+
+/* MÓVIL */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 12px;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    .servicios {
+        grid-template-columns: 1fr;
+    }
+
+    .reserva {
+        padding: 17px;
+    }
+
+    .dia {
+        min-height: 42px;
+        font-size: 13px;
+    }
+
+    .dias-semana,
+    .dias {
+        gap: 4px;
+    }
+
+    .horarios {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>💅 Uñas y Belleza</h1>
+        <p>Manicure profesional para resaltar tu belleza</p>
+    </header>
+
+    <a href="#reservar" class="boton-principal">
+        📅 Reservar mi cita
+    </a>
+
+    <section class="servicios">
+
+        <div class="servicio">
+            <h3>💅 Manicure</h3>
+            <p>Cuida y embellece tus manos.</p>
+        </div>
+
+        <div class="servicio">
+            <h3>🦶 Pedicure</h3>
+            <p>Relaja y cuida tus pies.</p>
+        </div>
+
+        <div class="servicio">
+            <h3>💎 Uñas de gel</h3>
+            <p>Diseños duraderos y elegantes.</p>
+        </div>
+
+    </section>
+
+    <section class="reserva" id="reservar">
+
+        <h2>📅 Reserva tu cita</h2>
+
+        <label for="nombre">Tu nombre</label>
+
+        <input
+            type="text"
+            id="nombre"
+            placeholder="Escribe tu nombre"
+            autocomplete="name"
+        >
+
+        <label>Selecciona una fecha</label>
+
+        <div class="calendario">
+
+            <div class="calendario-cabecera">
+
+                <button
+                    type="button"
+                    class="btn-mes"
+                    id="mesAnterior"
+                    onclick="cambiarMes(-1)"
+                >
+                    ‹
+                </button>
+
+                <h3 id="mesActual"></h3>
+
+                <button
+                    type="button"
+                    class="btn-mes"
+                    onclick="cambiarMes(1)"
+                >
+                    ›
+                </button>
+
+            </div>
+
+            <div class="dias-semana">
+                <div class="dia-semana">Lun</div>
+                <div class="dia-semana">Mar</div>
+                <div class="dia-semana">Mié</div>
+                <div class="dia-semana">Jue</div>
+                <div class="dia-semana">Vie</div>
+                <div class="dia-semana">Sáb</div>
+                <div class="dia-semana">Dom</div>
+            </div>
+
+            <div class="dias" id="diasCalendario"></div>
+
+        </div>
+
+        <div class="leyenda">
+            <span>
+                <span class="cuadro verde"></span>
+                Disponible
+            </span>
+
+            <span>
+                <span class="cuadro amarillo"></span>
+                1 horario ocupado
+            </span>
+
+            <span>
+                <span class="cuadro rojo"></span>
+                Completo
+            </span>
+
+            <span>
+                <span class="cuadro gris"></span>
+                No disponible
+            </span>
+        </div>
+
+        <div class="info-calendario">
+            ⚠️ Sábados y domingos no están disponibles.
+        </div>
+
+        <label>Selecciona el horario</label>
+
+        <div class="horarios">
+
+            <button
+                type="button"
+                class="hora"
+                id="hora10"
+                onclick="seleccionarHora('10:00 AM')"
+            >
+                10:00 AM
+            </button>
+
+            <button
+                type="button"
+                class="hora"
+                id="hora14"
+                onclick="seleccionarHora('2:00 PM')"
+            >
+                2:00 PM
+            </button>
+
+        </div>
+
+        <button
+            type="button"
+            class="boton-principal"
+            onclick="reservar()"
+        >
+            Confirmar reserva
+        </button>
+
+        <div id="mensaje" class="mensaje"></div>
+
+    </section>
+
+    <section class="whatsapp">
+
+        <h2>📱 ¿Tienes alguna pregunta?</h2>
+
+        <p>Escríbenos directamente por WhatsApp.</p>
+
+        <a
+            href="https://wa.me/5354019544"
+            target="_blank"
+        >
+            💬 Contactar por WhatsApp
+        </a>
+
+    </section>
+
+    <footer>
+        Uñas y Belleza 💅
+    </footer>
+
+</div>
+
+<script>
+
+/* =========================================================
+   CONFIGURACIÓN
+========================================================= */
+
+const URL_APPS_SCRIPT =
+"https://script.google.com/macros/s/AKfycbxXoH-FR1RlTAnfQFw6StDxPRQb814L2UDI5VF8GhEzE71MHvhrb8-S14USDSjjbRk/exec";
+
+const NUMERO_WHATSAPP = "5354019544";
+
+const HORAS = [
+    "10:00 AM",
+    "2:00 PM"
+];
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+let reservas = [];
+
+let fechaSeleccionada = "";
+
+let horaSeleccionada = "";
+
+let fechaCalendario = new Date();
+
+const hoy = new Date();
+
+hoy.setHours(0, 0, 0, 0);
+
+
+/* =========================================================
+   INICIO
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", async function() {
+
+    await cargarReservas();
+
+    renderizarCalendario();
+
+});
+
+
+/* =========================================================
+   CARGAR RESERVAS DESDE GOOGLE SHEETS
+========================================================= */
+
+async function cargarReservas() {
+
+    try {
+
+        const respuesta = await fetch(
+            URL_APPS_SCRIPT + "?t=" + Date.now(),
+            {
+                method: "GET",
+                cache: "no-store"
+            }
+        );
+
+        if (!respuesta.ok) {
+            throw new Error("Error HTTP " + respuesta.status);
+        }
+
+        const texto = await respuesta.text();
+
+        let datos;
+
+        try {
+            datos = JSON.parse(texto);
+        } catch (error) {
+            console.error("Respuesta recibida:", texto);
+            throw new Error("Google Apps Script no devolvió JSON válido.");
+        }
+
+        /*
+         Aceptamos diferentes formatos de respuesta
+         para que el calendario funcione aunque el backend
+         devuelva un array o un objeto.
+        */
+
+        let lista = [];
+
+        if (Array.isArray(datos)) {
+
+            lista = datos;
+
+        } else if (datos && Array.isArray(datos.reservas)) {
+
+            lista = datos.reservas;
+
+        } else if (datos && Array.isArray(datos.data)) {
+
+            lista = datos.data;
+
+        } else if (datos && Array.isArray(datos.rows)) {
+
+            lista = datos.rows;
+
+        }
+
+        reservas = lista
+            .map(extraerReserva)
+            .map(reserva => {
+
+                return {
+                    nombre: String(reserva.nombre || "").trim(),
+                    fecha: normalizarFecha(reserva.fecha),
+                    hora: normalizarHora(reserva.hora)
+                };
+
+            })
+            .filter(reserva => {
+
+                return (
+                    reserva.fecha !== "" &&
+                    reserva.hora !== ""
+                );
+
+            });
+
+        console.log("Reservas cargadas:", reservas);
+
+    } catch (error) {
+
+        console.error("Error cargando reservas:", error);
+
+        reservas = [];
+
+        mostrarMensaje(
+            "No se pudieron cargar las reservas. Comprueba la conexión con Google Sheets.",
+            "error"
+        );
+    }
+}
+
+
+/* =========================================================
+   EXTRAER RESERVA
+========================================================= */
+
+function extraerReserva(item) {
+
+    /*
+      Si Google devuelve filas como:
+      ["Ale", "2026-09-01", "10:00 AM"]
+    */
+
+    if (Array.isArray(item)) {
+
+        return {
+            nombre: item[0],
+            fecha: item[1],
+            hora: item[2]
+        };
+
+    }
+
+    /*
+      Si devuelve objetos.
+    */
+
+    return {
+
+        nombre:
+            item.nombre ??
+            item.Nombre ??
+            item.name ??
+            "",
+
+        fecha:
+            item.fecha ??
+            item.Fecha ??
+            item.date ??
+            "",
+
+        hora:
+            item.hora ??
+            item.Hora ??
+            item.time ??
+            ""
+
+    };
+}
+
+
+/* =========================================================
+   NORMALIZAR FECHA
+========================================================= */
+
+function normalizarFecha(valor) {
+
+    if (
+        valor === null ||
+        valor === undefined
+    ) {
+        return "";
+    }
+
+    let texto = String(valor).trim();
+
+    if (
+        texto === "" ||
+        texto.toLowerCase() === "undefined" ||
+        texto.toLowerCase() === "null"
+    ) {
+        return "";
+    }
+
+    /*
+      YYYY-MM-DD
+    */
+
+    let match = texto.match(
+        /^(\d{4})-(\d{2})-(\d{2})/
+    );
+
+    if (match) {
+
+        return (
+            match[1] +
+            "-" +
+            match[2] +
+            "-" +
+            match[3]
+        );
+    }
+
+    /*
+      YYYY/MM/DD
+    */
+
+    match = texto.match(
+        /^(\d{4})\/(\d{1,2})\/(\d{1,2})/
+    );
+
+    if (match) {
+
+        return (
+            match[1] +
+            "-" +
+            String(match[2]).padStart(2, "0") +
+            "-" +
+            String(match[3]).padStart(2, "0")
+        );
+    }
+
+    /*
+      DD/MM/YYYY
+    */
+
+    match = texto.match(
+        /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/
+    );
+
+    if (match) {
+
+        return (
+            match[3] +
+            "-" +
+            String(match[2]).padStart(2, "0") +
+            "-" +
+            String(match[1]).padStart(2, "0")
+        );
+    }
+
+    /*
+      Intentar interpretar como fecha.
+    */
+
+    const fecha = new Date(texto);
+
+    if (!isNaN(fecha.getTime())) {
+
+        return fechaLocalAString(fecha);
+
+    }
+
+    return "";
+}
+
+
+/* =========================================================
+   NORMALIZAR HORA
+========================================================= */
+
+function normalizarHora(valor) {
+
+    if (
+        valor === null ||
+        valor === undefined
+    ) {
+        return "";
+    }
+
+    const texto = String(valor)
+        .trim()
+        .toUpperCase();
+
+    if (texto === "") {
+        return "";
+    }
+
+    /*
+      Detectar 10:00 AM
+    */
+
+    if (
+        texto.includes("10:00") ||
+        texto.includes("10 AM") ||
+        texto.includes("10:00AM")
+    ) {
+
+        return "10:00 AM";
+    }
+
+    /*
+      Detectar 2:00 PM / 14:00
+    */
+
+    if (
+        texto.includes("2:00 PM") ||
+        texto.includes("02:00 PM") ||
+        texto.includes("14:00") ||
+        texto.includes("2 PM")
+    ) {
+
+        return "2:00 PM";
+    }
+
+    return "";
+}
+
+
+/* =========================================================
+   FECHA LOCAL
+========================================================= */
+
+function fechaLocalAString(fecha) {
+
+    const año = fecha.getFullYear();
+
+    const mes = String(
+        fecha.getMonth() + 1
+    ).padStart(2, "0");
+
+    const dia = String(
+        fecha.getDate()
+    ).padStart(2, "0");
+
+    return `${año}-${mes}-${dia}`;
+}
+
+
+/* =========================================================
+   CONTAR RESERVAS DE UN DÍA
+========================================================= */
+
+function obtenerHorasOcupadas(fecha) {
+
+    return reservas
+        .filter(reserva => reserva.fecha === fecha)
+        .map(reserva => reserva.hora);
+
+}
+
+
+/* =========================================================
+   RENDERIZAR CALENDARIO
+========================================================= */
+
+function renderizarCalendario() {
+
+    const contenedor =
+        document.getElementById("diasCalendario");
+
+    const titulo =
+        document.getElementById("mesActual");
+
+    contenedor.innerHTML = "";
+
+    const año =
+        fechaCalendario.getFullYear();
+
+    const mes =
+        fechaCalendario.getMonth();
+
+    const nombresMeses = [
+        "enero",
+        "febrero",
+        "marzo",
+        "abril",
+        "mayo",
+        "junio",
+        "julio",
+        "agosto",
+        "septiembre",
+        "octubre",
+        "noviembre",
+        "diciembre"
+    ];
+
+    titulo.textContent =
+        nombresMeses[mes] + " " + año;
+
+
+    /*
+      Primer día del mes.
+
+      JavaScript:
+      Domingo = 0
+      Lunes = 1
+
+      Lo convertimos a:
+      Lunes = 0
+      Domingo = 6
+    */
+
+    const primerDia =
+        new Date(año, mes, 1).getDay();
+
+    const posicionPrimerDia =
+        (primerDia + 6) % 7;
+
+    const cantidadDias =
+        new Date(año, mes + 1, 0).getDate();
+
+
+    /*
+      Espacios antes del día 1.
+    */
+
+    for (
+        let i = 0;
+        i < posicionPrimerDia;
+        i++
+    ) {
+
+        const espacio =
+            document.createElement("div");
+
+        espacio.className = "dia vacio";
+
+        contenedor.appendChild(espacio);
+    }
+
+
+    /*
+      Crear días.
+    */
+
+    for (
+        let dia = 1;
+        dia <= cantidadDias;
+        dia++
+    ) {
+
+        const boton =
+            document.createElement("button");
+
+        boton.type = "button";
+
+        boton.className = "dia";
+
+        boton.textContent = dia;
+
+
+        const fecha =
+            new Date(año, mes, dia);
+
+        fecha.setHours(0, 0, 0, 0);
+
+
+        const fechaTexto =
+            fechaLocalAString(fecha);
+
+
+        /*
+          Día de semana.
+
+          0 = domingo
+          6 = sábado
+        */
+
+        const diaSemana =
+            fecha.getDay();
+
+
+        const esFinDeSemana =
+            diaSemana === 0 ||
+            diaSemana === 6;
+
+
+        const esPasado =
+            fecha < hoy;
+
+
+        const horasOcupadas =
+            obtenerHorasOcupadas(fechaTexto);
+
+
+        const cantidadOcupada =
+            HORAS.filter(hora =>
+                horasOcupadas.includes(hora)
+            ).length;
+
+
+        /*
+          Estado visual.
+        */
+
+        if (esFinDeSemana) {
+
+            boton.classList.add("fin-semana");
+
+            boton.disabled = true;
+
+            boton.title =
+                "Sábado y domingo no están disponibles.";
+
+        } else if (esPasado) {
+
+            boton.classList.add("pasado");
+
+            boton.disabled = true;
+
+            boton.title =
+                "Esta fecha ya pasó.";
+
+        } else if (cantidadOcupada >= 2) {
+
+            boton.classList.add("completo");
+
+            boton.disabled = true;
+
+            boton.title =
+                "Los dos horarios están ocupados.";
+
+        } else if (cantidadOcupada === 1) {
+
+            boton.classList.add("parcial");
+
+            boton.title =
+                "Hay un horario disponible.";
+
+        } else {
+
+            boton.classList.add("disponible");
+
+            boton.title =
+                "Hay horarios disponibles.";
+        }
+
+
+        /*
+          Fecha actualmente seleccionada.
+        */
+
+        if (
+            fechaSeleccionada === fechaTexto
+        ) {
+
+            boton.classList.add("seleccionado");
+        }
+
+
+        /*
+          Seleccionar fecha.
+        */
+
+        if (!boton.disabled) {
+
+            boton.addEventListener(
+                "click",
+                function() {
+
+                    seleccionarFechaCalendario(
+                        fechaTexto
+                    );
+
+                }
+            );
+        }
+
+
+        contenedor.appendChild(boton);
+    }
+
+
+    /*
+      Desactivar botón de mes anterior
+      cuando estamos en el mes actual.
+    */
+
+    const mesAnterior =
+        document.getElementById("mesAnterior");
+
+    const mismoMes =
+        fechaCalendario.getFullYear() ===
+            hoy.getFullYear() &&
+        fechaCalendario.getMonth() ===
+            hoy.getMonth();
+
+    mesAnterior.disabled = mismoMes;
+}
+
+
+/* =========================================================
+   CAMBIAR MES
+========================================================= */
+
+function cambiarMes(direccion) {
+
+    const nuevoMes =
+        new Date(
+            fechaCalendario.getFullYear(),
+            fechaCalendario.getMonth() + direccion,
+            1
+        );
+
+    nuevoMes.setHours(0, 0, 0, 0);
+
+
+    /*
+      No permitir volver a meses anteriores
+      al mes actual.
+    */
+
+    const primerDiaMesActual =
+        new Date(
+            hoy.getFullYear(),
+            hoy.getMonth(),
+            1
+        );
+
+    if (
+        nuevoMes < primerDiaMesActual
+    ) {
+
+        return;
+    }
+
+    fechaCalendario = nuevoMes;
+
+    renderizarCalendario();
+}
+
+
+/* =========================================================
+   SELECCIONAR FECHA
+========================================================= */
+
+function seleccionarFechaCalendario(fecha) {
+
+    fechaSeleccionada = fecha;
+
+    horaSeleccionada = "";
+
+    actualizarBotonesHora();
+
+    mostrarDisponibilidad();
+
+    renderizarCalendario();
+}
+
+
+/* =========================================================
+   MOSTRAR DISPONIBILIDAD
+========================================================= */
+
+function mostrarDisponibilidad() {
+
+    if (!fechaSeleccionada) {
+        return;
+    }
+
+    const ocupadas =
+        obtenerHorasOcupadas(
+            fechaSeleccionada
+        );
+
+    const boton10 =
+        document.getElementById("hora10");
+
+    const boton14 =
+        document.getElementById("hora14");
+
+
+    /*
+      10:00 AM
+    */
+
+    if (
+        ocupadas.includes("10:00 AM")
+    ) {
+
+        boton10.disabled = true;
+
+        boton10.classList.add("ocupada");
+
+        boton10.textContent =
+            "10:00 AM — Ocupado";
+
+    } else {
+
+        boton10.disabled = false;
+
+        boton10.classList.remove("ocupada");
+
+        boton10.textContent =
+            "10:00 AM";
+    }
+
+
+    /*
+      2:00 PM
+    */
+
+    if (
+        ocupadas.includes("2:00 PM")
+    ) {
+
+        boton14.disabled = true;
+
+        boton14.classList.add("ocupada");
+
+        boton14.textContent =
+            "2:00 PM — Ocupado";
+
+    } else {
+
+        boton14.disabled = false;
+
+        boton14.classList.remove("ocupada");
+
+        boton14.textContent =
+            "2:00 PM";
+    }
+}
+
+
+/* =========================================================
+   SELECCIONAR HORA
+========================================================= */
+
+function seleccionarHora(hora) {
+
+    if (!fechaSeleccionada) {
+
+        mostrarMensaje(
+            "Primero selecciona una fecha.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    const ocupadas =
+        obtenerHorasOcupadas(
+            fechaSeleccionada
+        );
+
+
+    if (
+        ocupadas.includes(hora)
+    ) {
+
+        mostrarMensaje(
+            "Ese horario ya está ocupado.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    horaSeleccionada = hora;
+
+    actualizarBotonesHora();
+}
+
+
+/* =========================================================
+   ACTUALIZAR BOTONES DE HORA
+========================================================= */
+
+function actualizarBotonesHora() {
+
+    const boton10 =
+        document.getElementById("hora10");
+
+    const boton14 =
+        document.getElementById("hora14");
+
+
+    boton10.classList.remove(
+        "seleccionada"
+    );
+
+    boton14.classList.remove(
+        "seleccionada"
+    );
+
+
+    if (
+        horaSeleccionada ===
+        "10:00 AM"
+    ) {
+
+        boton10.classList.add(
+            "seleccionada"
+        );
+    }
+
+
+    if (
+        horaSeleccionada ===
+        "2:00 PM"
+    ) {
+
+        boton14.classList.add(
+            "seleccionada"
+        );
+    }
+}
+
+
+/* =========================================================
+   RESERVAR
+========================================================= */
+
+async function reservar() {
+
+    const nombre =
+        document
+            .getElementById("nombre")
+            .value
+            .trim();
+
+
+    if (!nombre) {
+
+        mostrarMensaje(
+            "Escribe tu nombre.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if (!fechaSeleccionada) {
+
+        mostrarMensaje(
+            "Selecciona una fecha.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if (!horaSeleccionada) {
+
+        mostrarMensaje(
+            "Selecciona un horario.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    /*
+      Comprobar nuevamente antes de enviar.
+    */
+
+    const ocupadas =
+        obtenerHorasOcupadas(
+            fechaSeleccionada
+        );
+
+
+    if (
+        ocupadas.includes(horaSeleccionada)
+    ) {
+
+        mostrarMensaje(
+            "Ese horario acaba de ser ocupado. Selecciona otro.",
+            "error"
+        );
+
+        await cargarReservas();
+
+        mostrarDisponibilidad();
+
+        renderizarCalendario();
+
+        return;
+    }
+
+
+    /*
+      Evitar doble clic.
+    */
+
+    const botonReserva =
+        document.querySelector(
+            ".reserva .boton-principal"
+        );
+
+    botonReserva.disabled = true;
+
+    botonReserva.textContent =
+        "Guardando reserva...";
+
+
+    try {
+
+        const datos = new URLSearchParams();
+
+        datos.append(
+            "nombre",
+            nombre
+        );
+
+        datos.append(
+            "fecha",
+            fechaSeleccionada
+        );
+
+        datos.append(
+            "hora",
+            horaSeleccionada
+        );
+
+
+        const respuesta =
+            await fetch(
+                URL_APPS_SCRIPT,
+                {
+                    method: "POST",
+                    body: datos
+                }
+            );
+
+
+        const texto =
+            await respuesta.text();
+
+
+        let resultado = {};
+
+        try {
+
+            resultado =
+                JSON.parse(texto);
+
+        } catch (error) {
+
+            resultado = {
+                ok: true
+            };
+        }
+
+
+        /*
+          Si el backend informa que está ocupado.
+        */
+
+        if (
+            resultado.ok === false ||
+            resultado.success === false ||
+            resultado.error === true
+        ) {
+
+            throw new Error(
+                resultado.mensaje ||
+                resultado.message ||
+                "No se pudo realizar la reserva."
+            );
+        }
+
+
+        /*
+          Crear la reserva localmente
+          para actualizar inmediatamente
+          el calendario.
+        */
+
+        reservas.push({
+
+            nombre: nombre,
+
+            fecha: fechaSeleccionada,
+
+            hora: horaSeleccionada
+
+        });
+
+
+        mostrarMensaje(
+            "¡Reserva realizada correctamente!",
+            "exito"
+        );
+
+
+        /*
+          Mensaje para WhatsApp.
+        */
+
+        const mensajeWhatsApp =
+            `Hola, quiero confirmar mi cita en Uñas y Belleza.%0A%0A` +
+            `Nombre: ${encodeURIComponent(nombre)}%0A` +
+            `Fecha: ${encodeURIComponent(fechaSeleccionada)}%0A` +
+            `Hora: ${encodeURIComponent(horaSeleccionada)}`;
+
+
+        /*
+          Abrir WhatsApp.
+        */
+
+        setTimeout(function() {
+
+            window.open(
+                `https://wa.me/${NUMERO_WHATSAPP}?text=${mensajeWhatsApp}`,
+                "_blank"
+            );
+
+        }, 500);
+
+
+        /*
+          Limpiar formulario.
+        */
+
+        document.getElementById(
+            "nombre"
+        ).value = "";
+
+
+        horaSeleccionada = "";
+
+        actualizarBotonesHora();
+
+        mostrarDisponibilidad();
+
+        renderizarCalendario();
+
+
+        /*
+          Volver a cargar desde Sheets
+          para asegurarnos de tener
+          los datos reales.
+        */
+
+        setTimeout(
+            async function() {
+
+                await cargarReservas();
+
+                mostrarDisponibilidad();
+
+                renderizarCalendario();
+
+            },
+            1000
+        );
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        mostrarMensaje(
+            error.message ||
+            "No se pudo realizar la reserva.",
+            "error"
+        );
+
+    } finally {
+
+        botonReserva.disabled = false;
+
+        botonReserva.textContent =
+            "Confirmar reserva";
+    }
+}
+
+
+/* =========================================================
+   MENSAJES
+========================================================= */
+
+function mostrarMensaje(texto, tipo) {
+
+    const mensaje =
+        document.getElementById("mensaje");
+
+    mensaje.textContent = texto;
+
+    mensaje.className =
+        "mensaje " + tipo;
+
+a
+            "mensaje";
+
+    }, 6000);
+}
+
+</script>
+
+</body>
+</html>
