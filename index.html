@@ -25,56 +25,69 @@
         body {
             min-height: 100vh;
 
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
 
             color: #333;
 
-            background-color: #f9e6ee;
-
             /*
-             * IMAGEN DE FONDO
+             * FOTO DE FONDO
              *
-             * Debe existir:
-             *
+             * Archivo:
              * images/images.jpg
-             *
              */
+
+            background-color: #f8dfe9;
 
             background-image:
                 linear-gradient(
-                    rgba(255, 255, 255, 0.25),
-                    rgba(255, 255, 255, 0.25)
+                    rgba(255, 255, 255, 0.08),
+                    rgba(255, 255, 255, 0.08)
                 ),
                 url("./images/images.jpg");
 
             background-size: cover;
+
             background-position: center center;
+
             background-repeat: no-repeat;
+
             background-attachment: fixed;
         }
 
 
         /* =====================================================
-           CONTENEDOR
+           CONTENEDOR PRINCIPAL
         ===================================================== */
 
         .contenedor {
             width: 94%;
+
             max-width: 1050px;
 
-            margin: 30px auto;
+            margin: 25px auto;
 
             padding: 25px;
 
-            background: rgba(255, 255, 255, 0.95);
+            /*
+             * MUY TRANSPARENTE
+             */
 
-            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.12);
+
+            border: 1px solid rgba(255, 255, 255, 0.35);
+
+            border-radius: 24px;
 
             box-shadow:
-                0 8px 30px rgba(0, 0, 0, 0.18);
+                0 8px 30px rgba(0, 0, 0, 0.15);
+
+            /*
+             * Efecto de cristal
+             */
+
+            backdrop-filter: blur(2px);
+
+            -webkit-backdrop-filter: blur(2px);
         }
 
 
@@ -86,20 +99,30 @@
             text-align: center;
 
             margin-bottom: 25px;
+
+            padding: 10px;
         }
 
         header h1 {
-            color: #d63384;
+            color: #b51f67;
 
-            font-size: 34px;
+            font-size: 36px;
 
             margin-bottom: 8px;
+
+            text-shadow:
+                0 1px 3px rgba(255, 255, 255, 0.8);
         }
 
         header p {
-            color: #777;
+            color: #4d4d4d;
 
             font-size: 16px;
+
+            font-weight: 600;
+
+            text-shadow:
+                0 1px 3px rgba(255, 255, 255, 0.8);
         }
 
 
@@ -111,11 +134,14 @@
             display: flex;
 
             align-items: center;
+
             justify-content: space-between;
 
             gap: 10px;
 
             margin-bottom: 15px;
+
+            padding: 5px;
         }
 
         .cabecera-calendario h2 {
@@ -123,11 +149,14 @@
 
             text-align: center;
 
-            color: #d63384;
+            color: #a91e61;
 
-            font-size: 24px;
+            font-size: 25px;
 
             text-transform: capitalize;
+
+            text-shadow:
+                0 1px 3px rgba(255, 255, 255, 0.9);
         }
 
 
@@ -136,41 +165,43 @@
         ===================================================== */
 
         .boton-mes {
-            width: 42px;
-            height: 42px;
+            width: 44px;
 
-            border: none;
+            height: 44px;
+
+            border: 1px solid rgba(255, 255, 255, 0.5);
 
             border-radius: 50%;
 
-            background: #d63384;
+            background: rgba(214, 51, 132, 0.82);
 
             color: white;
 
-            font-size: 25px;
+            font-size: 26px;
 
             cursor: pointer;
 
-            transition:
-                transform 0.2s,
-                background 0.2s;
+            transition: 0.2s;
+
+            box-shadow:
+                0 3px 8px rgba(0, 0, 0, 0.15);
         }
 
         .boton-mes:hover:not(:disabled) {
-            background: #b8256d;
+            background: rgba(184, 37, 109, 0.95);
 
             transform: scale(1.05);
         }
 
         .boton-mes:disabled {
-            background: #ccc;
+            background: rgba(130, 130, 130, 0.45);
 
             cursor: not-allowed;
         }
 
 
         /* =====================================================
-           NOMBRES DE LOS DÍAS
+           DÍAS DE LA SEMANA
         ===================================================== */
 
         .dias-semana {
@@ -189,11 +220,14 @@
 
             padding: 10px 3px;
 
-            color: #d63384;
+            color: #8f1551;
 
             font-weight: bold;
 
             font-size: 14px;
+
+            text-shadow:
+                0 1px 3px rgba(255, 255, 255, 0.9);
         }
 
 
@@ -212,15 +246,15 @@
 
 
         /* =====================================================
-           DÍAS
+           DÍAS DEL CALENDARIO
         ===================================================== */
 
         .dia {
             min-height: 78px;
 
-            border: none;
+            border: 1px solid rgba(255, 255, 255, 0.45);
 
-            border-radius: 12px;
+            border-radius: 13px;
 
             padding: 7px;
 
@@ -241,62 +275,68 @@
                 box-shadow 0.15s;
 
             position: relative;
+
+            box-shadow:
+                0 2px 6px rgba(0, 0, 0, 0.08);
         }
+
 
         .dia:hover:not(:disabled):not(.vacio) {
             transform: translateY(-2px);
 
             box-shadow:
-                0 4px 10px rgba(0, 0, 0, 0.15);
+                0 5px 12px rgba(0, 0, 0, 0.18);
         }
 
 
         /* =====================================================
-           DÍA VACÍO
+           DÍAS VACÍOS
         ===================================================== */
 
         .dia.vacio {
             background: transparent;
 
-            pointer-events: none;
+            border: none;
 
-            cursor: default;
+            box-shadow: none;
+
+            pointer-events: none;
         }
 
 
         /* =====================================================
            VERDE
-           DOS HORARIOS DISPONIBLES
+           2 HORARIOS DISPONIBLES
         ===================================================== */
 
         .dia.disponible {
-            background: #b9e8c4;
+            background: rgba(116, 220, 139, 0.68);
 
-            color: #176b2c;
+            color: #145d27;
         }
 
 
         /* =====================================================
            AMARILLO
-           UN HORARIO DISPONIBLE
+           1 HORARIO DISPONIBLE
         ===================================================== */
 
         .dia.parcial {
-            background: #ffe58f;
+            background: rgba(255, 218, 76, 0.72);
 
-            color: #765800;
+            color: #6b5100;
         }
 
 
         /* =====================================================
            ROJO
-           DOS HORARIOS OCUPADOS
+           COMPLETO
         ===================================================== */
 
         .dia.completo {
-            background: #f4aaaa;
+            background: rgba(239, 102, 102, 0.72);
 
-            color: #8f1717;
+            color: #851818;
 
             cursor: not-allowed;
         }
@@ -304,13 +344,13 @@
 
         /* =====================================================
            GRIS
-           FECHA PASADA
+           PASADO
         ===================================================== */
 
         .dia.pasado {
-            background: #dedede;
+            background: rgba(180, 180, 180, 0.62);
 
-            color: #888;
+            color: #666;
 
             cursor: not-allowed;
         }
@@ -324,11 +364,14 @@
             outline: 3px solid #d63384;
 
             outline-offset: 2px;
+
+            box-shadow:
+                0 0 12px rgba(214, 51, 132, 0.5);
         }
 
 
         /* =====================================================
-           NÚMERO DEL DÍA
+           NÚMERO
         ===================================================== */
 
         .numero-dia {
@@ -339,13 +382,13 @@
 
 
         /* =====================================================
-           ESTADO DEL DÍA
+           ESTADO
         ===================================================== */
 
         .estado-dia {
             font-size: 10px;
 
-            font-weight: normal;
+            font-weight: bold;
 
             text-align: center;
         }
@@ -369,6 +412,8 @@
             margin-top: 20px;
 
             margin-bottom: 25px;
+
+            padding: 10px;
         }
 
         .leyenda-item {
@@ -378,32 +423,40 @@
 
             gap: 6px;
 
-            color: #555;
+            color: #444;
 
             font-size: 13px;
+
+            font-weight: 600;
+
+            text-shadow:
+                0 1px 3px rgba(255, 255, 255, 0.9);
         }
 
         .cuadro-leyenda {
             width: 18px;
+
             height: 18px;
 
             border-radius: 5px;
+
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
         .verde {
-            background: #b9e8c4;
+            background: rgba(116, 220, 139, 0.68);
         }
 
         .amarillo {
-            background: #ffe58f;
+            background: rgba(255, 218, 76, 0.72);
         }
 
         .rojo {
-            background: #f4aaaa;
+            background: rgba(239, 102, 102, 0.72);
         }
 
         .gris {
-            background: #dedede;
+            background: rgba(180, 180, 180, 0.62);
         }
 
 
@@ -412,7 +465,8 @@
         ===================================================== */
 
         .reserva {
-            border-top: 1px solid #eee;
+            border-top:
+                1px solid rgba(255, 255, 255, 0.5);
 
             padding-top: 25px;
         }
@@ -420,11 +474,14 @@
         .reserva h2 {
             text-align: center;
 
-            color: #d63384;
+            color: #a91e61;
 
-            font-size: 24px;
+            font-size: 25px;
 
             margin-bottom: 8px;
+
+            text-shadow:
+                0 1px 3px rgba(255, 255, 255, 0.9);
         }
 
 
@@ -439,9 +496,14 @@
 
             text-align: center;
 
-            color: #666;
+            color: #444;
 
             font-size: 15px;
+
+            font-weight: bold;
+
+            text-shadow:
+                0 1px 3px rgba(255, 255, 255, 0.9);
         }
 
 
@@ -463,13 +525,19 @@
         .boton-hora {
             padding: 14px;
 
-            border: 2px solid #d63384;
+            border: 2px solid
+                rgba(214, 51, 132, 0.8);
 
             border-radius: 12px;
 
-            background: white;
+            /*
+             * TRANSPARENTE
+             */
 
-            color: #d63384;
+            background:
+                rgba(255, 255, 255, 0.42);
+
+            color: #a91e61;
 
             font-size: 16px;
 
@@ -478,24 +546,31 @@
             cursor: pointer;
 
             transition: 0.2s;
+
+            box-shadow:
+                0 3px 8px rgba(0, 0, 0, 0.08);
         }
 
         .boton-hora:hover:not(:disabled) {
-            background: #fce4ef;
+            background:
+                rgba(255, 255, 255, 0.65);
         }
 
         .boton-hora.seleccionado {
-            background: #d63384;
+            background:
+                rgba(214, 51, 132, 0.85);
 
             color: white;
         }
 
         .boton-hora.ocupado {
-            background: #eee;
+            background:
+                rgba(190, 190, 190, 0.55);
 
-            border-color: #bbb;
+            border-color:
+                rgba(120, 120, 120, 0.6);
 
-            color: #888;
+            color: #777;
 
             text-decoration: line-through;
 
@@ -518,9 +593,12 @@
         }
 
         .formulario label {
-            color: #555;
+            color: #444;
 
             font-weight: bold;
+
+            text-shadow:
+                0 1px 3px rgba(255, 255, 255, 0.9);
         }
 
         .formulario input {
@@ -528,20 +606,42 @@
 
             padding: 13px;
 
-            border: 1px solid #ccc;
+            border:
+                1px solid rgba(255, 255, 255, 0.65);
 
             border-radius: 10px;
 
             outline: none;
 
             font-size: 15px;
+
+            /*
+             * TRANSPARENTE
+             */
+
+            background:
+                rgba(255, 255, 255, 0.45);
+
+            color: #333;
+
+            box-shadow:
+                inset 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .formulario input::placeholder {
+            color: #666;
         }
 
         .formulario input:focus {
-            border-color: #d63384;
+            border-color:
+                rgba(214, 51, 132, 0.8);
+
+            background:
+                rgba(255, 255, 255, 0.62);
 
             box-shadow:
-                0 0 0 2px rgba(214, 51, 132, 0.12);
+                0 0 0 2px
+                rgba(214, 51, 132, 0.12);
         }
 
 
@@ -560,7 +660,8 @@
 
             border-radius: 12px;
 
-            background: #d63384;
+            background:
+                rgba(214, 51, 132, 0.86);
 
             color: white;
 
@@ -571,14 +672,21 @@
             cursor: pointer;
 
             transition: 0.2s;
+
+            box-shadow:
+                0 4px 10px rgba(0, 0, 0, 0.15);
         }
 
         .boton-reservar:hover:not(:disabled) {
-            background: #b8256d;
+            background:
+                rgba(184, 37, 109, 0.95);
+
+            transform: translateY(-1px);
         }
 
         .boton-reservar:disabled {
-            background: #aaa;
+            background:
+                rgba(140, 140, 140, 0.65);
 
             cursor: not-allowed;
         }
@@ -605,7 +713,8 @@
         .mensaje.exito {
             display: block;
 
-            background: #d4edda;
+            background:
+                rgba(212, 237, 218, 0.82);
 
             color: #155724;
         }
@@ -613,7 +722,8 @@
         .mensaje.error {
             display: block;
 
-            background: #f8d7da;
+            background:
+                rgba(248, 215, 218, 0.85);
 
             color: #721c24;
         }
@@ -634,17 +744,20 @@
 
                 margin: 10px auto;
 
-                padding: 14px;
+                padding: 13px;
 
-                border-radius: 16px;
+                border-radius: 17px;
+
+                background:
+                    rgba(255, 255, 255, 0.10);
             }
 
             header h1 {
-                font-size: 27px;
+                font-size: 28px;
             }
 
             header p {
-                font-size: 14px;
+                font-size: 13px;
             }
 
             .cabecera-calendario h2 {
@@ -653,6 +766,7 @@
 
             .boton-mes {
                 width: 38px;
+
                 height: 38px;
 
                 font-size: 22px;
@@ -666,11 +780,11 @@
             .nombre-dia {
                 padding: 7px 1px;
 
-                font-size: 11px;
+                font-size: 10px;
             }
 
             .dia {
-                min-height: 64px;
+                min-height: 63px;
 
                 padding: 4px;
 
@@ -694,17 +808,21 @@
             }
 
             .leyenda {
-                gap: 8px;
+                gap: 7px;
+
+                padding: 5px;
             }
 
             .leyenda-item {
-                font-size: 10px;
+                font-size: 9px;
             }
 
             .cuadro-leyenda {
-                width: 15px;
-                height: 15px;
+                width: 14px;
+
+                height: 14px;
             }
+
         }
 
     </style>
@@ -740,8 +858,6 @@
         <section class="calendario-contenedor">
 
 
-            <!-- CABECERA -->
-
             <div class="cabecera-calendario">
 
                 <button
@@ -770,7 +886,7 @@
             </div>
 
 
-            <!-- DÍAS DE LA SEMANA -->
+            <!-- DÍAS -->
 
             <div class="dias-semana">
 
@@ -805,9 +921,7 @@
             ></div>
 
 
-            <!-- =================================================
-                 LEYENDA
-            ================================================== -->
+            <!-- LEYENDA -->
 
             <div class="leyenda">
 
@@ -828,7 +942,7 @@
                         class="cuadro-leyenda amarillo"
                     ></span>
 
-                    1 horario disponible
+                    1 disponible
 
                 </div>
 
@@ -977,10 +1091,6 @@
             "5354019544";
 
 
-        /*
-         * Horarios disponibles
-         */
-
         const HORAS = [
             "10:00",
             "14:00"
@@ -991,20 +1101,20 @@
            VARIABLES
         ===================================================== */
 
-        let fechaCalendario = new Date();
+        let fechaCalendario =
+            new Date();
 
-        let fechaSeleccionada = null;
+        let fechaSeleccionada =
+            null;
 
-        let horaSeleccionada = null;
+        let horaSeleccionada =
+            null;
 
         let reservas = [];
 
 
-        /*
-         * Fecha de hoy a las 00:00
-         */
-
-        const hoy = new Date();
+        const hoy =
+            new Date();
 
         hoy.setHours(
             0,
@@ -1015,7 +1125,7 @@
 
 
         /* =====================================================
-           NOMBRES DE LOS MESES
+           MESES
         ===================================================== */
 
         const nombresMeses = [
@@ -1035,7 +1145,7 @@
 
 
         /* =====================================================
-           INICIAR
+           INICIO
         ===================================================== */
 
         document.addEventListener(
@@ -1073,7 +1183,7 @@
                 if (!respuesta.ok) {
 
                     throw new Error(
-                        "Error de conexión"
+                        "No se pudo conectar"
                     );
 
                 }
@@ -1095,12 +1205,14 @@
                 try {
 
                     datos =
-                        JSON.parse(texto);
+                        JSON.parse(
+                            texto
+                        );
 
                 } catch (error) {
 
                     console.error(
-                        "Google Sheets no devolvió JSON:",
+                        "Respuesta no JSON:",
                         texto
                     );
 
@@ -1121,10 +1233,6 @@
                     "Error cargando reservas:",
                     error
                 );
-
-                /*
-                 * No detenemos la página.
-                 */
 
                 reservas = [];
 
@@ -1156,11 +1264,6 @@
             let filas = [];
 
 
-            /*
-             * Caso:
-             * { data: [...] }
-             */
-
             if (
                 !Array.isArray(datos) &&
                 Array.isArray(datos.data)
@@ -1170,11 +1273,6 @@
                     datos.data;
 
             }
-
-            /*
-             * Caso:
-             * [...]
-             */
 
             else if (
                 Array.isArray(datos)
@@ -1361,40 +1459,36 @@
 
             if (coincidencia) {
 
-                const parte1 =
+                const dia =
                     parseInt(
                         coincidencia[1],
                         10
                     );
 
-                const parte2 =
+
+                const mes =
                     parseInt(
                         coincidencia[2],
                         10
                     );
 
+
                 const año =
                     coincidencia[3];
 
-
-                /*
-                 * En este proyecto vamos a considerar
-                 * DD/MM/YYYY cuando el formato no sea
-                 * ISO.
-                 */
 
                 return (
                     año +
                     "-" +
                     String(
-                        parte2
+                        mes
                     ).padStart(
                         2,
                         "0"
                     ) +
                     "-" +
                     String(
-                        parte1
+                        dia
                     ).padStart(
                         2,
                         "0"
@@ -1405,7 +1499,7 @@
 
 
             /*
-             * Fecha reconocible por JavaScript
+             * Último intento
              */
 
             const fecha =
@@ -1450,7 +1544,7 @@
             }
 
 
-            let texto =
+            const texto =
                 String(valor)
                     .trim()
                     .toUpperCase();
@@ -1557,7 +1651,7 @@
 
 
         /* =====================================================
-           CONVERTIR FECHA A ISO
+           FECHA ISO
         ===================================================== */
 
         function convertirFechaISO(
@@ -1622,7 +1716,7 @@
 
 
             /*
-             * Primer día del mes
+             * Primer día
              */
 
             const primerDia =
@@ -1633,35 +1727,25 @@
                 );
 
 
-            let diaSemana =
+            const diaSemana =
                 primerDia.getDay();
 
 
             /*
-             * Domingo = 0
-             * Lunes = 1
-             * Martes = 2
-             * Miércoles = 3
-             * Jueves = 4
-             * Viernes = 5
-             * Sábado = 6
+             * Lunes = 0
+             * Martes = 1
+             * Miércoles = 2
+             * Jueves = 3
+             * Viernes = 4
              *
-             * Nuestro calendario:
-             *
-             * LUN = 0
-             * MAR = 1
-             * MIÉ = 2
-             * JUE = 3
-             * VIE = 4
+             * Si el mes comienza sábado
+             * o domingo, empezamos directamente
+             * desde lunes.
              */
 
+            let espaciosIniciales =
+                0;
 
-            let espaciosIniciales = 0;
-
-
-            /*
-             * Si empieza lunes-viernes
-             */
 
             if (
                 diaSemana >= 1 &&
@@ -1675,11 +1759,8 @@
 
 
             /*
-             * Si empieza sábado o domingo,
-             * el primer día laboral aparece
-             * en lunes.
+             * Espacios iniciales
              */
-
 
             for (
                 let i = 0;
@@ -1705,7 +1786,7 @@
 
 
             /*
-             * Número de días del mes
+             * Días del mes
              */
 
             const cantidadDias =
@@ -1715,10 +1796,6 @@
                     0
                 ).getDate();
 
-
-            /*
-             * Crear cada día
-             */
 
             for (
                 let numero = 1;
@@ -1739,10 +1816,8 @@
 
 
                 /*
-                 * NO mostrar:
-                 *
-                 * domingo = 0
-                 * sábado = 6
+                 * NO mostrar sábado
+                 * ni domingo.
                  */
 
                 if (
@@ -1758,6 +1833,12 @@
                 const fechaISO =
                     convertirFechaISO(
                         fecha
+                    );
+
+
+                const disponibilidad =
+                    obtenerDisponibilidad(
+                        fechaISO
                     );
 
 
@@ -1802,28 +1883,18 @@
                  * Estado
                  */
 
-                const estadoElemento =
+                const estado =
                     document.createElement(
                         "div"
                     );
 
 
-                estadoElemento.className =
+                estado.className =
                     "estado-dia";
 
 
                 /*
-                 * Disponibilidad
-                 */
-
-                const disponibilidad =
-                    obtenerDisponibilidad(
-                        fechaISO
-                    );
-
-
-                /*
-                 * Fecha pasada
+                 * Comprobar pasado
                  */
 
                 const esPasado =
@@ -1836,7 +1907,7 @@
                         "pasado"
                     );
 
-                    estadoElemento.textContent =
+                    estado.textContent =
                         "No disponible";
 
                     boton.disabled =
@@ -1844,51 +1915,54 @@
 
                 }
 
+
+                /*
+                 * 2 disponibles
+                 */
+
                 else if (
                     disponibilidad.disponibles === 2
                 ) {
-
-                    /*
-                     * VERDE
-                     */
 
                     boton.classList.add(
                         "disponible"
                     );
 
-                    estadoElemento.textContent =
+                    estado.textContent =
                         "Disponible";
 
                 }
+
+
+                /*
+                 * 1 disponible
+                 */
 
                 else if (
                     disponibilidad.disponibles === 1
                 ) {
 
-                    /*
-                     * AMARILLO
-                     */
-
                     boton.classList.add(
                         "parcial"
                     );
 
-                    estadoElemento.textContent =
-                        "1 horario";
+                    estado.textContent =
+                        "1 disponible";
 
                 }
 
-                else {
 
-                    /*
-                     * ROJO
-                     */
+                /*
+                 * 0 disponibles
+                 */
+
+                else {
 
                     boton.classList.add(
                         "completo"
                     );
 
-                    estadoElemento.textContent =
+                    estado.textContent =
                         "Completo";
 
                     boton.disabled =
@@ -1898,12 +1972,12 @@
 
 
                 boton.appendChild(
-                    estadoElemento
+                    estado
                 );
 
 
                 /*
-                 * Día seleccionado
+                 * Seleccionado
                  */
 
                 if (
@@ -1946,10 +2020,6 @@
 
             }
 
-
-            /*
-             * Botón mes anterior
-             */
 
             actualizarBotonMesAnterior();
 
@@ -2015,11 +2085,6 @@
                 );
 
 
-            /*
-             * Nunca permitir meses anteriores
-             * al actual.
-             */
-
             if (
                 nuevoMes < mesActual
             ) {
@@ -2035,9 +2100,7 @@
 
 
             /*
-             * Si el mes cambia,
-             * quitamos la fecha seleccionada
-             * para evitar inconsistencias.
+             * Quitar selección
              */
 
             fechaSeleccionada =
@@ -2064,7 +2127,7 @@
 
 
         /* =====================================================
-           OBTENER DISPONIBILIDAD
+           DISPONIBILIDAD
         ===================================================== */
 
         function obtenerDisponibilidad(
@@ -2103,7 +2166,7 @@
 
 
         /* =====================================================
-           OBTENER HORAS OCUPADAS
+           HORAS OCUPADAS
         ===================================================== */
 
         function obtenerHorasOcupadas(
@@ -2142,16 +2205,15 @@
             fechaISO
         ) {
 
-            /*
-             * Seguridad:
-             * no seleccionar pasado.
-             */
-
             const fecha =
                 crearFechaDesdeISO(
                     fechaISO
                 );
 
+
+            /*
+             * No permitir pasado.
+             */
 
             if (
                 fecha < hoy
@@ -2163,8 +2225,7 @@
 
 
             /*
-             * Seguridad:
-             * no seleccionar si está completo.
+             * No permitir completo.
              */
 
             const disponibilidad =
@@ -2230,7 +2291,7 @@
 
 
         /* =====================================================
-           CREAR FECHA DESDE ISO
+           CREAR FECHA
         ===================================================== */
 
         function crearFechaDesdeISO(
@@ -2290,10 +2351,6 @@
             hora
         ) {
 
-            /*
-             * Primero comprobar fecha.
-             */
-
             if (
                 !fechaSeleccionada
             ) {
@@ -2307,10 +2364,6 @@
 
             }
 
-
-            /*
-             * Comprobar que todavía esté libre.
-             */
 
             const ocupadas =
                 obtenerHorasOcupadas(
@@ -2348,7 +2401,7 @@
 
 
         /* =====================================================
-           ACTUALIZAR BOTONES DE HORAS
+           ACTUALIZAR BOTONES HORARIOS
         ===================================================== */
 
         function actualizarBotonesHora() {
@@ -2366,7 +2419,7 @@
 
 
             /*
-             * Resetear
+             * Reiniciar
              */
 
             boton10.classList.remove(
@@ -2500,7 +2553,7 @@
 
 
             /*
-             * FECHA
+             * Comprobar fecha
              */
 
             if (
@@ -2518,7 +2571,7 @@
 
 
             /*
-             * HORA
+             * Comprobar hora
              */
 
             if (
@@ -2536,7 +2589,7 @@
 
 
             /*
-             * DATOS
+             * Datos
              */
 
             const nombre =
@@ -2582,7 +2635,8 @@
 
 
             /*
-             * COMPROBACIÓN FINAL
+             * Comprobar nuevamente
+             * disponibilidad.
              */
 
             const ocupadas =
@@ -2602,9 +2656,7 @@
                     "error"
                 );
 
-
                 await cargarReservas();
-
 
                 return;
 
@@ -2612,7 +2664,7 @@
 
 
             /*
-             * BOTÓN
+             * Botón
              */
 
             const boton =
@@ -2632,7 +2684,7 @@
             try {
 
                 /*
-                 * Datos para Apps Script
+                 * Crear datos
                  */
 
                 const datos =
@@ -2689,13 +2741,13 @@
 
 
                 console.log(
-                    "Respuesta de reserva:",
+                    "Respuesta de Google Sheets:",
                     texto
                 );
 
 
                 /*
-                 * Intentar leer respuesta JSON.
+                 * Intentar JSON
                  */
 
                 let resultado =
@@ -2711,16 +2763,6 @@
 
                 } catch (error) {
 
-                    /*
-                     * Algunas configuraciones
-                     * de Apps Script devuelven
-                     * una respuesta que no se puede
-                     * interpretar como JSON.
-                     *
-                     * En ese caso no detenemos
-                     * la reserva.
-                     */
-
                     resultado =
                         null;
 
@@ -2728,8 +2770,7 @@
 
 
                 /*
-                 * Si Apps Script dice explícitamente
-                 * que hubo error.
+                 * Error explícito
                  */
 
                 if (
@@ -2746,7 +2787,7 @@
 
 
                 /*
-                 * Agregar reserva localmente.
+                 * Guardar localmente
                  */
 
                 reservas.push({
@@ -2761,8 +2802,7 @@
 
 
                 /*
-                 * Guardar los datos antes
-                 * de limpiar variables.
+                 * Guardar valores
                  */
 
                 const fechaReserva =
@@ -2774,17 +2814,16 @@
 
 
                 /*
-                 * Actualizar calendario.
+                 * Actualizar
                  */
 
                 actualizarCalendario();
-
 
                 actualizarBotonesHora();
 
 
                 /*
-                 * Mensaje.
+                 * Mensaje
                  */
 
                 mostrarMensaje(
@@ -2794,7 +2833,7 @@
 
 
                 /*
-                 * Preparar WhatsApp.
+                 * Fecha para WhatsApp
                  */
 
                 const fecha =
@@ -2840,7 +2879,7 @@
 
 
                 /*
-                 * Texto de WhatsApp.
+                 * WhatsApp
                  */
 
                 const textoWhatsApp =
@@ -2871,7 +2910,7 @@
 
 
                 /*
-                 * Abrir WhatsApp.
+                 * Abrir WhatsApp
                  */
 
                 window.open(
@@ -2881,7 +2920,7 @@
 
 
                 /*
-                 * Limpiar formulario.
+                 * Limpiar formulario
                  */
 
                 document
@@ -2890,11 +2929,6 @@
                     )
                     .reset();
 
-
-                /*
-                 * Mantener la fecha seleccionada,
-                 * pero quitar la hora.
-                 */
 
                 horaSeleccionada =
                     null;
@@ -2906,7 +2940,7 @@
             } catch (error) {
 
                 console.error(
-                    "Error al reservar:",
+                    "Error realizando reserva:",
                     error
                 );
 
@@ -2920,7 +2954,7 @@
 
 
             /*
-             * Reactivar botón.
+             * Reactivar botón
              */
 
             boton.disabled =
